@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LoginBtn from '../components/loginbtn';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -30,6 +31,7 @@ function Login() {
                 />
                 <br />
             </div>
+            <LoginBtn />
         </form>
     )
 }

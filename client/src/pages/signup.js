@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SignupBtn from '../components/signupbtn';
 
 function Signup() {
     const [username, setUsername] = useState('');
@@ -41,6 +42,7 @@ function Signup() {
                     placeholder="Enter a password"
                 />
             </div>
+            <SignupBtn />
         </form>
     )
 }
