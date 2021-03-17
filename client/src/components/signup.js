@@ -1,32 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function SignupForm(props) {
+function Signup() {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     return (
         <form className="signup-form">
             <div className="form-group">
-                <label className="username-label">Username</label>
+                <label className="username-label">Username:</label>
+                <br />
                 <input className="username-input"
                     name="username"
-                    value={props.signup}
-                    onChange={props.handleInputChange}
+                    value={username}
+                    onChange={setUsername}
                     type="text"
                     id="username"
                     placeholder="Enter a username"
                 />
-                <label className="email-label">Email</label>
+                <br />
+                <label className="email-label">Email:</label>
+                <br />
                 <input className="email-input"
                     name="email"
-                    value={props.signup}
-                    onChange={props.handleInputChange}
+                    value={email}
+                    onChange={setEmail}
                     type="text"
                     id="email"
                     placeholder="Enter your email address"
                 />
-                <label className="password-label">Password</label>
+                <br />
+                <label className="password-label">Password:</label>
+                <br />
                 <input className="password-input"
                     name="password"
-                    value={props.signup}
-                    onChange={props.handleInputChange}
+                    value={password}
+                    onChange={setPassword}
                     type="text"
                     id="password"
                     placeholder="Enter a password"
@@ -36,4 +45,4 @@ function SignupForm(props) {
     )
 }
 
-export default SignupForm;
+export default Signup;
