@@ -1,14 +1,26 @@
 import React from "react";
-import Login from "./pages/login.js";
-import Signup from "./pages/signup.js";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import LoginSignup from "./pages/LoginSignup"
+import CSS from "./pages/CSS";
+import HTML from "./pages/HTML";
+import Javascript from "./pages/Javascript"
 
 
 function App() {
     return (
         <div>
 
-            <Login />
-            <Signup />
+            <Router>
+
+                <div>
+                    <Route exact path="/" component={LoginSignup} />
+                    <Route exact path="/CSS" component={CSS} />
+                    <Route exact path="/HTML" component={HTML} />
+                    <Route exact path="/Javascript" component={Javascript} />
+                </div>
+
+            </Router>
+
 
             {/* <Header />
             <Card />
