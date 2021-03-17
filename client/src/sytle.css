@@ -1,0 +1,33 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Syne Mono', monospace; */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+#root,
+#root > div,
+div[data-reactroot] {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+    background-color: cadetblue;
+    font-family: 'Syne Mono', monospace;
+}
+
+body {
+    background-color: rgb(212, 216, 216);
+    color: rgb(0, 1, 2);
+    padding: 40px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Syne Mono', monospace;
+   
+}

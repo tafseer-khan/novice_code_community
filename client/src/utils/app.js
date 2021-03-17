@@ -6,9 +6,10 @@ import Signup from "./pages/signup.js";
 function App() {
     return (
         <div>
-            <Header />
+
+            {/* <Header />
             <Card />
-            <Section />
+            <Section /> */}
         </div>
     );
 }
