@@ -1,6 +1,6 @@
 import React from "react";
-import Login from "./pages/login.js";
-import Signup from "./pages/signup.js";
+import Login from "./components/login.js";
+import Signup from "./components/signup.js";
 
 
 function App() {
