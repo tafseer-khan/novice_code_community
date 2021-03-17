@@ -6,8 +6,10 @@ import Signup from "../components/signup.js";
 function App() {
     return (
         <div>
+
             <Login />
             <Signup />
+
             {/* <Header />
             <Card />
             <Section /> */}
