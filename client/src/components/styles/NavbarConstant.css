@@ -1,0 +1,9 @@
+.button{
+    position: absolute; top: 5px; right: 5px;
+    color: white;
+    background-color: blue;
+    width: fit-content;
+    padding: 4px;
+    border-radius: 10px;
+
+}
