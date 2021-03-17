@@ -46,4 +46,4 @@ function NavbarConstant() {
 
     )
 
-} export default NavbarConstant
+} export default NavbarConstant;

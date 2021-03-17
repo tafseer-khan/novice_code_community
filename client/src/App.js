@@ -3,15 +3,14 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginSignup from "./pages/LoginSignup"
 import CSS from "./pages/CSS";
 import HTML from "./pages/HTML";
-import Javascript from "./pages/Javascript"
+import Javascript from "./pages/Javascript";
+import NavbarConstant from './pages/NavbarConstant';
 
 
 function App() {
     return (
         <div>
-
             <Router>
-
                 <div>
                     <Route exact path="/" component={LoginSignup} />
                     <Route exact path="/CSS" component={CSS} />
@@ -20,8 +19,6 @@ function App() {
                 </div>
 
             </Router>
-
-
             {/* <Header />
             <Card />
             <Section /> */}

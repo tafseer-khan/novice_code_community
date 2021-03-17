@@ -1,7 +1,7 @@
 import React from "react";
-import NavbarConstant from "../components/NavbarConstant";
-import Login from "../components/login.js";
-import Signup from "../components/signup.js";
+import NavbarConstant from "./NavbarConstant";
+import Login from "./login.js";
+import Signup from "./signup.js";
 
 
 
@@ -14,6 +14,7 @@ function LoginSignup(){
             <NavbarConstant />
             <h1>The page is working</h1>
             <Login />
+            <br />
             <Signup />
 
             
