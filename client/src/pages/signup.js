@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import SignupBtn from '../components/signupbtn';
 
-function Login() {
+function Signup() {
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     return (
-        <form className="login-form">
+        <form className="signup-form">
             <div className="form-group">
                 <label className="username-label">Username:</label>
                 <br />
@@ -18,6 +20,17 @@ function Login() {
                     placeholder="Enter a username"
                 />
                 <br />
+                <label className="email-label">Email:</label>
+                <br />
+                <input className="email-input"
+                    name="email"
+                    value={email}
+                    onChange={setEmail}
+                    type="text"
+                    id="email"
+                    placeholder="Enter your email address"
+                />
+                <br />
                 <label className="password-label">Password:</label>
                 <br />
                 <input className="password-input"
@@ -28,10 +41,10 @@ function Login() {
                     id="password"
                     placeholder="Enter a password"
                 />
-                <br />
             </div>
+            <SignupBtn />
         </form>
     )
 }
 
-export default Login;
+export default Signup;
