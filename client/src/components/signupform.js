@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import LoginBtn from '../components/loginbtn';
 
-function LoginForm() {
+function SignupForm() {
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     return (
-        <form className="login-form">
+        <form className="signup-form">
             <div className="form-group">
                 <label className="username-label">Username:</label>
                 <br />
@@ -19,6 +19,17 @@ function LoginForm() {
                     placeholder="Enter a username"
                 />
                 <br />
+                <label className="email-label">Email:</label>
+                <br />
+                <input className="email-input"
+                    name="email"
+                    value={email}
+                    onChange={setEmail}
+                    type="text"
+                    id="email"
+                    placeholder="Enter your email address"
+                />
+                <br />
                 <label className="password-label">Password:</label>
                 <br />
                 <input className="password-input"
@@ -29,11 +40,10 @@ function LoginForm() {
                     id="password"
                     placeholder="Enter a password"
                 />
-                <br />
+                <button className="signup-btn" tabIndex="0" >Signup</button>
             </div>
-            <LoginBtn />
         </form>
     )
 }
 
-export default LoginForm;
+export default SignupForm;

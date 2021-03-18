@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/NavbarConstant.css"
+import "../components/styles/NavbarConstant.css";
 import { Link } from "react-router-dom"
 
 function NavbarConstant() {
