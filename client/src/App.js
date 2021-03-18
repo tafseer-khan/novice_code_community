@@ -4,6 +4,8 @@ import LoginSignup from "./pages/LoginSignup"
 import CSS from "./pages/CSS";
 import HTML from "./pages/HTML";
 import Javascript from "./pages/Javascript";
+import "./style.css";
+
 // import NavbarConstant from './pages/NavbarConstant';
 
 
