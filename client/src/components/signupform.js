@@ -1,46 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function SignupForm() {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     return (
         <form className="signup-form">
             <div className="form-group">
                 <label className="username-label">Username:</label>
                 <br />
-                <input className="username-input"
-                    name="username"
-                    value={username}
-                    onChange={setUsername}
-                    type="text"
-                    id="username"
-                    placeholder="Enter a username"
+                <input type="username"
+                    className="form-control"
+                    placeholder="Choose a username"
                 />
                 <br />
                 <label className="email-label">Email:</label>
                 <br />
-                <input className="email-input"
-                    name="email"
-                    value={email}
-                    onChange={setEmail}
-                    type="text"
-                    id="email"
-                    placeholder="Enter your email address"
+                <input type="email"
+                    className="form-control"
+                    placeholder="Enter your email"
                 />
                 <br />
                 <label className="password-label">Password:</label>
                 <br />
-                <input className="password-input"
-                    name="password"
-                    value={password}
-                    onChange={setPassword}
-                    type="text"
-                    id="password"
+                <input type="password"
+                    className="form-control"
                     placeholder="Enter a password"
                 />
-                <button className="signup-btn" tabIndex="0" >Signup</button>
+                <br />
+                <button type="submit" className="signup-btn">Sign Up</button>
             </div>
         </form>
     )
