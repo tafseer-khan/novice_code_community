@@ -24,6 +24,7 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 
 // <------ this might need to be exported in it's file, I'm not sure.
 // Connect to the Mongo DB
+// nonsense
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ncc",
 {useNewUrlParser: true,
