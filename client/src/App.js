@@ -4,7 +4,7 @@ import LoginSignup from "./pages/LoginSignup"
 import CSS from "./pages/CSS";
 import HTML from "./pages/HTML";
 import Javascript from "./pages/Javascript";
-import NavbarConstant from './pages/NavbarConstant';
+// import NavbarConstant from './pages/NavbarConstant';
 
 
 function App() {
