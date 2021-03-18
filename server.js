@@ -19,7 +19,7 @@ else {app.use(express.static("client/public"))}
 // Add routes, both API and view
 app.use(routes);
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-app.use(compression)
+
 
 
 // <------ this might need to be exported in it's file, I'm not sure.
