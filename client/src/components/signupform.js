@@ -12,7 +12,7 @@ function SignupForm() {
                 <br />
                 <input className="username-input"
                     name="username"
-                    value={username}
+                    value={username[name]}
                     onChange={setUsername}
                     type="text"
                     id="username"
@@ -23,7 +23,7 @@ function SignupForm() {
                 <br />
                 <input className="email-input"
                     name="email"
-                    value={email}
+                    value={email[name]}
                     onChange={setEmail}
                     type="text"
                     id="email"
@@ -34,9 +34,9 @@ function SignupForm() {
                 <br />
                 <input className="password-input"
                     name="password"
-                    value={password}
+                    value={password[name]}
                     onChange={setPassword}
-                    type="text"
+                    type="password"
                     id="password"
                     placeholder="Enter a password"
                 />

@@ -11,7 +11,7 @@ function LoginForm() {
                 <br />
                 <input className="email-input"
                     name="email"
-                    value={email}
+                    value={email[name]}
                     onChange={setEmail}
                     type="text"
                     id="email"
@@ -22,9 +22,9 @@ function LoginForm() {
                 <br />
                 <input className="password-input"
                     name="password"
-                    value={password}
+                    value={password[name]}
                     onChange={setPassword}
-                    type="text"
+                    type="password"
                     id="password"
                     placeholder="Enter a password"
                 />
