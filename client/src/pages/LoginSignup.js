@@ -1,7 +1,7 @@
 import React from "react";
 import NavbarConstant from "./NavbarConstant";
-import Login from "./login.js";
-import Signup from "./signup.js";
+import LoginForm from "../components/loginform.js";
+import SignupForm from "../components/signupform.js";
 
 
 
@@ -12,10 +12,11 @@ function LoginSignup(){
 
         <div>
             <NavbarConstant />
-            <h1>The page is working</h1>
-            <Login />
+            <h3>Login Here</h3>
+            <LoginForm />
             <br />
-            <Signup />
+            <h3>Sign Up Here</h3>
+            <SignupForm />
 
             
             
