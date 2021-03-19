@@ -14,24 +14,24 @@ function Posts() {
     const [posts, setPosts] = useState([])
     const [formObject, setFormObject] = useState([])
 
-    useEffect(() => {
-        loadPosts()
-    }, [])
+    // useEffect(() => {
+    //     loadPosts()
+    // }, [])
 
-    function loadPosts() {
-        API.getUserPosts()
-            .then(res =>
-                setPosts(res.data)
-            )
-            .catch(err => console.log(err));
+    // function loadPosts() {
+    //     API.getUserPosts()
+    //         .then(res =>
+    //             setPosts(res.data)
+    //         )
+    //         .catch(err => console.log(err));
 
-    };
+    // };
 
-    function deletePost(id) {
-        API.deletePost(id)
-            .then(res => loadPosts())
-            .catch(err => console.log(err));
-    }
+    // function deletePost(id) {
+    //     API.deletePost(id)
+    //         .then(res => loadPosts())
+    //         .catch(err => console.log(err));
+    // }
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -57,7 +57,7 @@ function Posts() {
 
             <Container fluid>
                 
-                    <Col size="md-6 sm-12">
+                    <Col size="col-lg">
 
                         {posts.length ? (
                             <List>
@@ -65,7 +65,7 @@ function Posts() {
                                     <ListItem key={post._id}>
                                         <Link to={"/posts/" + post._id}>
                                             <strong>
-                                                {post.username} said {post.message} 
+                                                {post.username} said {post.content} 
                                             </strong>
                                         </Link>
                                         <DeleteBtn onClick={() => deletePost(post._id)} />

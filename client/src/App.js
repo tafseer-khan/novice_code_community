@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import LoginSignup from "./pages/LoginSignup"
+import Home from "./pages/Home"
 import CSS from "./pages/CSS"
 import HTML from "./pages/HTML";
 import Javascript from "./pages/Javascript"
-import Posts from "./pages/Posts"
 import Header from "./components/Header";
 import "./style.css";
 
@@ -17,7 +16,7 @@ function App() {
             <Router>
                 <div>
                     <Header />
-                    <Route exact path="/" component={LoginSignup} />
+                    <Route exact path="/" component={Home} />
                     <Route exact path="/CSS" component={CSS} />
                     <Route exact path="/HTML" component={HTML} />
                     <Route exact path="/Javascript" component={Javascript} />
