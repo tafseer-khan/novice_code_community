@@ -5,6 +5,8 @@ const routes = require("./routes");
 const passport = require("./config/passport")
 const app = express();
 const PORT = process.env.PORT || 3001;
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // Define middleware here
