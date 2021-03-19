@@ -5,11 +5,11 @@ const postSchema = new Schema({
 
   date: { type: Date, default: Date.now },
 
-  username: { type: String, required: true },
+  username: { type: String, required: true},
   
-  title: { type: String, required: true },
+  title: { type: String, required: true, minlength:1, maxlength:40},
 
-  content: {type: String, required: true},
+  content: {type: String, required: true,minlength:1},
 
   category: {type: String, required:true},
 
