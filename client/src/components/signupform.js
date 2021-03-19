@@ -3,48 +3,37 @@ import React from 'react';
 function SignupForm() {
 
     return (
-        <form className="signup-form">
-            <div className="form-group">
-            
-                <input className="username-input"
-                    name="username"
-                    value={username[name]}
-                    onChange={setUsername}
-                    type="text"
-                    id="username"
-                    placeholder="Enter a username"
+        <div className="form-group">
+            <label className="username-label">Username:</label>
+            <br />
 
-                />
-                <br />
-                <label className="email-label">Email:</label>
-                <br />
+            <input type="username"
+                className="form-control"
+                placeholder="Choose a username"
 
-                <input className="email-input"
-                    name="email"
-                    value={email[name]}
-                    onChange={setEmail}
-                    type="text"
-                    id="email"
-                    placeholder="Enter your email address"
+            />
+            <br />
+            <label className="email-label">Email:</label>
+            <br />
 
-                />
-                <br />
-                <label className="password-label">Password:</label>
-                <br />
+            <input type="email"
+                className="form-control"
+                placeholder="Enter your email"
 
-                <input className="password-input"
-                    name="password"
-                    value={password[name]}
-                    onChange={setPassword}
-                    type="password"
-                    id="password"
+            />
+            <br />
+            <label className="password-label">Password:</label>
+            <br />
 
-                    placeholder="Enter a password"
-                />
-                <br />
-                <button type="submit" className="signup-btn">Sign Up</button>
-            </div>
-        </form>
+            <input type="password"
+                className="form-control"
+
+                placeholder="Enter a password"
+            />
+            <br />
+            <button type="submit" className="signup-btn">Sign Up</button>
+        </div>
+        
     )
 }
 
