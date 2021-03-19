@@ -5,14 +5,16 @@ import CSS from "./pages/CSS"
 import HTML from "./pages/HTML";
 import Javascript from "./pages/Javascript"
 import Posts from "./pages/Posts"
+import Javascript from "./pages/Javascript";
+import "./style.css";
+
+// import NavbarConstant from './pages/NavbarConstant';
 
 
 function App() {
     return (
         <div>
-
             <Router>
-
                 <div>
                     <Route exact path="/" component={LoginSignup} />
                     <Route exact path="/CSS" component={CSS} />
@@ -21,8 +23,6 @@ function App() {
                 </div>
 
             </Router>
-
-
             {/* <Header />
             <Card />
             <Section /> */}
