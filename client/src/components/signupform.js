@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function SignupForm() {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     return (
         <form className="signup-form">
@@ -40,7 +37,8 @@ function SignupForm() {
                     id="password"
                     placeholder="Enter a password"
                 />
-                <button className="signup-btn" tabIndex="0" >Signup</button>
+                <br />
+                <button type="submit" className="signup-btn">Sign Up</button>
             </div>
         </form>
     )

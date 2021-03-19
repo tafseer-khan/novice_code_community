@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function LoginForm() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     return (
         <form className="login-form">
@@ -29,7 +27,7 @@ function LoginForm() {
                     placeholder="Enter a password"
                 />
                 <br />
-                <button className="login-btn" tabIndex="0" >Login</button>
+                <button type="submit" className="login-btn">Login</button>
             </div>
         </form>
     )
