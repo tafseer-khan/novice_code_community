@@ -7,13 +7,11 @@ const postSchema = new Schema({
 
   username: { type: String, required: true},
   
-  title: { type: String, required: true, minlength:1, maxlength:40},
-
   content: {type: String, required: true,minlength:1},
 
-  category: {type: String, required:true},
+  images: {type: String},
 
-  images: {type: String}
+  refId: {type:Number,required: true}
 });
 
 const Post = mongoose.model("Userpost", postSchema);
