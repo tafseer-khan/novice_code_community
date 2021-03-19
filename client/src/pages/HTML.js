@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarConstant from "../components/NavbarConstant";
+import NavbarConstant from "./NavbarConstant";
 import Posts from "../pages/Posts"
 
 

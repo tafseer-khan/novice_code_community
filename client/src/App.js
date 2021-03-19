@@ -5,7 +5,6 @@ import CSS from "./pages/CSS"
 import HTML from "./pages/HTML";
 import Javascript from "./pages/Javascript"
 import Posts from "./pages/Posts"
-import Javascript from "./pages/Javascript";
 import Header from "./components/Header";
 import "./style.css";
 
