@@ -1,8 +1,8 @@
 const express = require("express");
-// const session = require("express-session");
+const session = require("express-session");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-// const passport = require("./config/passport")
+const passport = require("./config/passport")
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -19,9 +19,9 @@ else {app.use(express.static("client/public"))}
 
 // Add routes, both API and view
 app.use(routes);
-// app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // Connect to the Mongo DB
