@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const db = require("../../models/post");
+const db = require("../../models");
 
 // Matches with "/api/userposts"
 // router.route("/")
@@ -22,7 +22,5 @@ router.post("/post", (req,res) => {
     images: req.body.images
   })
 })
-
-router.get("/post")
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const db = require("../../models/replies");
+const db = require("../../models");
 
 router.post("/replies", (req,res) => {
     db.Reply.create({
@@ -9,3 +9,4 @@ router.post("/replies", (req,res) => {
         refId: req.body.refId
     })
 })
+module.exports = router;
