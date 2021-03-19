@@ -57,7 +57,7 @@ function Posts() {
 
             <Container fluid>
                 
-                    <Col size="md-6 sm-12">
+                    <Col size="col-lg">
 
                         {posts.length ? (
                             <List>
