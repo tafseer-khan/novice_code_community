@@ -5,7 +5,7 @@ const router = require("express").Router();
 
 // module.exports = (app) => {
   
-  // Posts that we have logged in once authenticated 
+//   Posts that we have logged in once authenticated 
   router.post("/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
