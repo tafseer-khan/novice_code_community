@@ -1,7 +1,8 @@
 .button{
+    font-family: 'Syne Mono', monospace;
     position: absolute; top: 5px; right: 5px;
     color: white;
-    background-color: blue;
+    background-color: rgb(92, 92, 124);
     width: fit-content;
     padding: 4px;
     border-radius: 10px;

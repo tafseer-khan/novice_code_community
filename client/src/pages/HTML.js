@@ -2,8 +2,6 @@ import React from "react";
 import NavbarConstant from "./NavbarConstant";
 import Posts from "../pages/Posts"
 
-
-
 function HTML(){
 
     return(
