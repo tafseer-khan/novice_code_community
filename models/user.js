@@ -1,47 +1,55 @@
 const mongoose = require("mongoose");
-var bcrypt = reequire("bcryptjs")
+var bcrypt = require("bcryptjs")
 
-
-const UserSchema = new mongoose.Schemma({
+const userSchema = new mongoose.Schema({
     // Giving the User model a first name of type STRING
-    firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
+      username: {
+        type: String,
+        // allowNull: false,
+        // validate: {
+        //   len: [1]
+        // }
       },
       // Giving the User model a last name of type STRING
-      lastName:  {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
       // Giving the User model a email of type STRING
       email:   {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
+        type: String,
+        // allowNull: false,
+        // validate: {
+        //   len: [1]
+        // }
       },
       // Giving the User model a password of type STRING
       password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [5, 20]
-        }
+        type: String,
+        // allowNull: false,
+        // validate: {
+        //   len: [5, 20]
+        // }
+        // required: true
       },
     
 })
+userSchema.methods = {
+  validPassword: function(password){
+      // console.log(bcrypt.compareSync(password,this.password))
+      return bcrypt.compareSync(password,this.password)
+  },
+  hashPassword: function(password){
+      return bcrypt.hashSync(password, 10)
+  }
+};
 
-User.prototype.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
-  };
-  // Before password is created the password is encrypted
-  User.addHook("beforeCreate", function(user) {
-    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-  });
+userSchema.pre('save', function (next){
+  if (!this.password){
+      console.log('No password')
+  }else{
+      console.log('Password Saved')
+      this.password = this.hashPassword(this.password);
+      next();
+  }
+})
+
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;

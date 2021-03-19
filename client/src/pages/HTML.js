@@ -1,5 +1,6 @@
 import React from "react";
 import NavbarConstant from "../components/NavbarConstant";
+import Posts from "../pages/Posts"
 
 
 
@@ -8,8 +9,21 @@ function HTML(){
     return(
 
         <div>
+            
             <NavbarConstant />
+            
+            <div style={{float: "left" , width: "50%"}}>
+
             <h1>The page is working</h1>
+
+            </div >
+
+            <div style={{float: "right" , width: "50%" , marginTop: "2%"}}>
+            <Posts />
+
+            </div>
+            
+            
             
         </div>
     )
