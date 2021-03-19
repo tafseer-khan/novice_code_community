@@ -8,26 +8,17 @@ function LoginForm() {
                 <label className="email-label">Email:</label>
                 <br />
 
-                <input className="email-input"
-                    name="email"
-                    value={email[name]}
-                    onChange={setEmail}
-                    type="text"
-                    id="email"
-                    placeholder="Enter your email address"
-
+                <input type="email"
+                    className="form-control"
+                    placeholder="Enter your email"
                 />
                 <br />
                 <label className="password-label">Password:</label>
                 <br />
 
-                <input className="password-input"
-                    name="password"
-                    value={password[name]}
-                    onChange={setPassword}
-                    type="password"
-                    id="password"
-                    placeholder="Enter a password"
+                <input type="password"
+                    className="form-control"
+                    placeholder="Enter your password"
 
                 />
                 <br />
