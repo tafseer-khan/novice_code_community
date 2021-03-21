@@ -37,8 +37,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ncc",
 );
 
 
-app.use(passport.initialize());
-app.use(passport.session());
+
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
 
