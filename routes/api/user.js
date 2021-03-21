@@ -3,19 +3,13 @@ const passport = require("../../config/passport.js");
 const router = require("express").Router();
 const User = require("../../models/user")
 
-
-// module.exports = (app) => {
-  
-  // Posts that we have logged in once authenticated 
+ // Login route, will authenticate through passport and create a current session for the user. 
   router.post("/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user.username);
   });
 
   // Posts new user 
   router.post('/createUser', (req, res) => {
-    // db.User.create(req.body).then((response) => {
-    //   res.json(response);
-    // });
     const {email,password,username} = req.body;
     User.findOne({email: email}, (err,mail) =>{
       if (err) console.log(err);
