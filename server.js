@@ -5,8 +5,7 @@ const routes = require("./routes");
 const passport = require("./config/passport")
 const app = express();
 const PORT = process.env.PORT || 3001;
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 
 // Define middleware here
@@ -20,8 +19,11 @@ if (process.env.NODE_ENV === "production") {
 else {app.use(express.static("client/public"))}
 
 // Add routes, both API and view
-app.use(routes);
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(routes);
+
 
 
 

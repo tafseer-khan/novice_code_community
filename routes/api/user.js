@@ -8,7 +8,7 @@ const User = require("../../models/user")
   
   // Posts that we have logged in once authenticated 
   router.post("/login", passport.authenticate("local"), function (req, res) {
-    res.json(req.user);
+    res.json(req.user.username);
   });
 
   // Posts new user 
@@ -50,8 +50,7 @@ const User = require("../../models/user")
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id,
-        firstName: req.user.firstName
+        username: req.user.username
       });
     }
   });
