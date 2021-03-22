@@ -14,24 +14,24 @@ function Posts() {
     const [posts, setPosts] = useState([])
     const [formObject, setFormObject] = useState([])
 
-    // useEffect(() => {
-    //     loadPosts()
-    // }, [])
+    useEffect(() => {
+        loadPosts()
+    }, [])
 
-    // function loadPosts() {
-    //     API.getUserPosts()
-    //         .then(res =>
-    //             setPosts(res.data)
-    //         )
-    //         .catch(err => console.log(err));
+    function loadPosts() {
+        API.getUserPost()
+            .then(res =>
+                setPosts(res.data)
+            )
+            .catch(err => console.log(err));
 
-    // };
+    };
 
-    // function deletePost(id) {
-    //     API.deletePost(id)
-    //         .then(res => loadPosts())
-    //         .catch(err => console.log(err));
-    // }
+    function deletePost(id) {
+        API.deletePost(id)
+            .then(res => loadPosts())
+            .catch(err => console.log(err));
+    }
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -51,6 +51,22 @@ function Posts() {
                 console.log(res)})
                 .catch(err => console.log(err));
         }
+        if (formObject.Subject) {
+            let searchTerms = formObject.Subject.replace(/\s/g, '');
+            console.log(searchTerms);
+            searchYoutube(searchTerms);
+        }
+    };
+
+    function searchYoutube(searchTerms) {
+        Youtube.getVideos(searchTerms)
+            .then(res => {
+                let videoID = res.data.items[0].id.videoId;
+                let videoLink = "https://www.youtube.com/embed/" + videoID
+                // <iframe width="560" height="315" src=videoLink title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                }
+            )
+            .catch(err => console.log(err));
     };
 
         return (
@@ -82,6 +98,11 @@ function Posts() {
                                 onChange={handleInputChange}
                                 name="Username"
                                 placeholder="Username will eventually fill this (automatically hidden)"
+                            />
+                            <Input
+                                onChange={handleInputChange}
+                                name="Subject"
+                                placeholder="Subject"
                             />
                             <Input
                                 onChange={handleInputChange}
