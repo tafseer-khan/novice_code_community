@@ -9,15 +9,15 @@ function ChatSubmission() {
 
             <div className="container" style={{float: "right" , marginTop: "1%"}}>
                 
-                <button type="button" style={{float: "right" , width: "10%"}} className="btn btn-dark" id="addDeed">Submit</button>
+                <button type="button" style={{float: "right" , width: "10%"}} className="btn btn-dark" id="addPost">Submit</button>
 
                 <input
 
                     className="form-control" 
-                    id="deed" 
+                    id="post" 
                     style={{float: "right", width: "40%" , borderRadius: "10px"}}
                     rows="1" 
-                    name="deed"
+                    name="post"
                     placeholder="enter your question/answer">
 
                     

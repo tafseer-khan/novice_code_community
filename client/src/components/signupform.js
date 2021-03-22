@@ -1,52 +1,67 @@
-import React, { useState } from 'react';
+import React from 'react';
+const passport = require('passport-local');
+const axios = require('axios');
+import Signup from "../utils/signupScript"
+
+
 
 function SignupForm() {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('Signup submitted');
-    }
+    // function create() {
+    //     Signup.signup()
+    // }
+    // const [username, setUsername] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+
+    // const handleInputChange = event => {
+    //     const { username, value } = event.target;
+    //     const { email, value } = event.target;
+    //     const { password, value } = event.target;
+    // }
 
     return (
-        <form onSubmit={handleSubmit} className="form-group">
+        <div className="form-group">
             <label className="username-label">Username:</label>
             <br />
             <input
-                type="text"
-                name={username}
+                type="username"
+                name="username"
                 className="form-control"
                 placeholder="Choose a username"
-                onChange={event => setUsername(event.target.name)}
-                id="signup-username"
+                id = "signup-username"
+                // value={username}
+                // onChange={handleInputChange}
             />
             <br />
             <label className="email-label">Email:</label>
             <br />
             <input
-                name={email}
+                name="email"
                 type="email"
                 className="form-control"
                 placeholder="Enter your email"
-                onChange={event => setEmail(event.target.name)}
-                id="signup-email"
+                id = "signup-email"
+                // value={email}
+                // onChange={handleInputChange}
             />
             <br />
             <label className="password-label">Password:</label>
             <br />
             <input
-                name={password}
+                name="password"
                 type="password"
                 className="form-control"
                 placeholder="Enter a password"
-                onChange={event => setPassword(event.target.name)}
                 id="signup-password"
+                // value={password}
+                // onChange={handleInputChange}
             />
             <br />
-            <button type="submit" className="signup-btn">Sign Up</button>
-        </form>        
+            {/* <button type="submit" className="signup-btn" onClick={() => [setUsername, setEmail, setPassword]}>Sign Up</button> */}
+            <button className="signup-btn" onClick={()=>Signup.signup()} >Sign Up</button>
+        </div>
+        
     )
 }
 
