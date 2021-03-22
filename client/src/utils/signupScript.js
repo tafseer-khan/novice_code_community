@@ -14,19 +14,16 @@ export default {
             password: password,
             email: email
         };
-        console.log(newUser)
         axios.post("/api/user/createUser", {
             newUser
         }).then(res => {
             // login(newUser.email,newUser.password)
-                console.log(email, password);
                 axios.post("/api/user/login", {
                                 email: email,
                                 password: password
                 })
 
         })
-        console.log("nice")
 
     }
 }
