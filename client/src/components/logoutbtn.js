@@ -1,9 +1,23 @@
-import React from 'react'
+import React from "react";
+import { useAtom } from "jotai";
+import { loggedIn } from "../Atoms";
 
-export default function LogoutBtn() {
+function LogoutBtn() {
+
+    const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
+
+    console.log(areWeLoggedIn)
+
+    const newLoggedInStatus = (e) => {
+        e.preventDefault()
+        changeLoggedIn(false)
+
+    }
+
+
     return (
         <div>
-            <button className="logout-btn" tabIndex="0" >Logout</button>
+            <button onClick={newLoggedInStatus} >Logout</button>
         </div>
     )
-}
+} export default LogoutBtn
