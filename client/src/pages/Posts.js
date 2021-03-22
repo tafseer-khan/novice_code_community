@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
+import Youtube from "../utils/Youtube";
 import { Link } from "react-router-dom"
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
@@ -15,6 +16,7 @@ import { loggedIn } from "../Atoms";
 function Posts() {
 
     const [posts, setPosts] = useState([])
+    const [video, setVideo] = useState([])
     const [formObject, setFormObject] = useState([])
     //testing state with jotai below
     const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
@@ -72,8 +74,8 @@ function Posts() {
         Youtube.getVideos(searchTerms)
             .then(res => {
                 let videoID = res.data.items[0].id.videoId;
-                let videoLink = "https://www.youtube.com/embed/" + videoID
-                // <iframe width="560" height="315" src=videoLink title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                let videoLink = "https://www.youtube.com/embed/" + videoID;
+                setVideo(videoLink);
             }
             )
             .catch(err => console.log(err));
@@ -151,6 +153,13 @@ function Posts() {
 
 
                 </form>
+
+                {video.length > 0 ? (
+                        <iframe width="560" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                    ) : (
+                        null
+                )}
 
             </Col>
 
