@@ -3,9 +3,15 @@ const passport = require('passport-local');
 const axios = require('axios');
 
 function SignupForm() {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // const [username, setUsername] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+
+    // const handleInputChange = event => {
+    //     const { username, value } = event.target;
+    //     const { email, value } = event.target;
+    //     const { password, value } = event.target;
+    // }
 
     return (
         <div className="form-group">
@@ -16,8 +22,8 @@ function SignupForm() {
                 name="username"
                 className="form-control"
                 placeholder="Choose a username"
-                value={username}
-                onChange={setUsername}
+                // value={username}
+                // onChange={handleInputChange}
             />
             <br />
             <label className="email-label">Email:</label>
@@ -27,8 +33,8 @@ function SignupForm() {
                 type="email"
                 className="form-control"
                 placeholder="Enter your email"
-                value={email}
-                onChange={setEmail}
+                // value={email}
+                // onChange={handleInputChange}
             />
             <br />
             <label className="password-label">Password:</label>
@@ -38,11 +44,12 @@ function SignupForm() {
                 type="password"
                 className="form-control"
                 placeholder="Enter a password"
-                value={password}
-                onChange={setPassword}
+                // value={password}
+                // onChange={handleInputChange}
             />
             <br />
-            <button type="submit" className="signup-btn" onClick={() => [setUsername, setEmail, setPassword]}>Sign Up</button>
+            {/* <button type="submit" className="signup-btn" onClick={() => [setUsername, setEmail, setPassword]}>Sign Up</button> */}
+            <button type="submit" className="signup-btn">Sign Up</button>
         </div>
         
     )
