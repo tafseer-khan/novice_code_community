@@ -7,6 +7,8 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SignUpButton from "../components/SignUpButton";
+import {useAtom} from "jotai";
+import { loggedIn } from "../Atoms";
 
 
 
@@ -14,6 +16,11 @@ function Posts() {
 
     const [posts, setPosts] = useState([])
     const [formObject, setFormObject] = useState([])
+    //testing state with jotai below
+    const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
+    console.log(areWeLoggedIn)
+    const newLoggedInStatus
+    
 
     useEffect(() => {
         loadPosts()
@@ -73,7 +80,9 @@ function Posts() {
     };
 
     //use this to decide state of sign in
-    const signedIn= false;
+    // function setSignedIn(){
+
+    // }
 
     return (
 
@@ -118,7 +127,7 @@ function Posts() {
 
 
 
-                    {signedIn === false ? (
+                    {areWeLoggedIn === false ? (
 
                         <FormBtn >
 

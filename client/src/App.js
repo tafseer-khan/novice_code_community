@@ -6,6 +6,10 @@ import HTML from "./pages/HTML";
 import Javascript from "./pages/Javascript"
 import Header from "./components/Header";
 import "./style.css";
+import {useAtom} from "jotai";
+import {loggedIn} from "./Atoms";
+
+
 
 // import NavbarConstant from './pages/NavbarConstant';
 

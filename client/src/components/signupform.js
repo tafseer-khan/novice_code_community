@@ -1,8 +1,15 @@
 import React from 'react';
 const passport = require('passport-local');
 const axios = require('axios');
+import Signup from "../utils/signupScript"
+
+
 
 function SignupForm() {
+
+    // function create() {
+    //     Signup.signup()
+    // }
     // const [username, setUsername] = useState('');
     // const [email, setEmail] = useState('');
     // const [password, setPassword] = useState('');
@@ -22,6 +29,7 @@ function SignupForm() {
                 name="username"
                 className="form-control"
                 placeholder="Choose a username"
+                id = "signup-username"
                 // value={username}
                 // onChange={handleInputChange}
             />
@@ -33,6 +41,7 @@ function SignupForm() {
                 type="email"
                 className="form-control"
                 placeholder="Enter your email"
+                id = "signup-email"
                 // value={email}
                 // onChange={handleInputChange}
             />
@@ -44,12 +53,13 @@ function SignupForm() {
                 type="password"
                 className="form-control"
                 placeholder="Enter a password"
+                id="signup-password"
                 // value={password}
                 // onChange={handleInputChange}
             />
             <br />
             {/* <button type="submit" className="signup-btn" onClick={() => [setUsername, setEmail, setPassword]}>Sign Up</button> */}
-            <button type="submit" className="signup-btn">Sign Up</button>
+            <button className="signup-btn" onClick={()=>Signup.signup()} >Sign Up</button>
         </div>
         
     )
