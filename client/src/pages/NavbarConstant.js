@@ -1,5 +1,4 @@
 import React from "react";
-import "../components/styles/NavbarConstant.css";
 import { Link } from "react-router-dom"
 
 function NavbarConstant() {
@@ -22,23 +21,18 @@ function NavbarConstant() {
                         <li className="nav-item">
                             <Link to="/Javascript" className={window.location.pathname === "/Javascript" ? "nav-link active" : "nav-link"}>Javascript</Link>
                         </li>
-                        
-                        
+
+
 
                     </ul>
 
-                    
+
 
                 </div>
+                
 
             </nav>
-            
-            <div className="button" >
-                <Link to="/" className={window.location.pathname === "/" ? "button" : "button"}>Signup/Login</Link>
-            </div>
 
-            
-            
 
         </div>
 
