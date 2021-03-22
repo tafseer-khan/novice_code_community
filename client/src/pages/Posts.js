@@ -14,24 +14,24 @@ function Posts() {
     const [posts, setPosts] = useState([])
     const [formObject, setFormObject] = useState([])
 
-    // useEffect(() => {
-    //     loadPosts()
-    // }, [])
+    useEffect(() => {
+        loadPosts()
+    }, [])
 
-    // function loadPosts() {
-    //     API.getUserPosts()
-    //         .then(res =>
-    //             setPosts(res.data)
-    //         )
-    //         .catch(err => console.log(err));
+    function loadPosts() {
+        API.getUserPost()
+            .then(res =>
+                setPosts(res.data)
+            )
+            .catch(err => console.log(err));
 
-    // };
+    };
 
-    // function deletePost(id) {
-    //     API.deletePost(id)
-    //         .then(res => loadPosts())
-    //         .catch(err => console.log(err));
-    // }
+    function deletePost(id) {
+        API.deletePost(id)
+            .then(res => loadPosts())
+            .catch(err => console.log(err));
+    }
 
     function handleInputChange(event) {
         const { name, value } = event.target;
