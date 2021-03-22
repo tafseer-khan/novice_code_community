@@ -137,13 +137,19 @@ function Posts() {
                     />
 
 
-                    <button onClick={newLoggedInStatus}>change logged in status</button>
+                    
                     
                     {areWeLoggedIn === false ? (
 
-                        
+                        <div  //if areWeLoggedIn equals false the sign up button is displayed, if not- the form submit button is displayed
+                        >
+                            
+                            <SignUpButton />
+                            <button onClick={newLoggedInStatus}>change logged in status</button>
 
-                        <SignUpButton />
+                        </div>
+
+                        
 
                         
 

@@ -16,7 +16,9 @@ const styles = {
     background: "cadetblue"
   },
   headingStyle: {
-    fontSize: 100
+    textAlign: "center",
+    fontSize: 75
+    
   }
 };
 
