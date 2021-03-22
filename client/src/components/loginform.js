@@ -20,6 +20,7 @@ function LoginForm() {
                     className="form-control"
                     placeholder="Enter your email"
                     onChange={event => setEmail(event.target.name)}
+                    id="login-email"
                 />
                 <br />
                 <label className="password-label">Password:</label>
@@ -30,6 +31,7 @@ function LoginForm() {
                     className="form-control"
                     placeholder="Enter a password"
                     onChange={event => setPassword(event.target.name)}
+                    id="login-password"
                 />
                 <br />
                 <button type="submit" className="login-btn">Login</button>
