@@ -19,33 +19,33 @@ function SignupForm() {
             <br />
             <input
                 type="username"
-                name={username}
+                value={username}
                 className="form-control"
                 placeholder="Choose a username"
                 id = "signup-username"
-                onChange={event => setUsername(event.target.name)}
+                onChange={event => setUsername(event.target.value)}
             />
             <br />
             <label className="email-label">Email:</label>
             <br />
             <input
-                   name={email}
+                   value={email}
                    type="email"
                    className="form-control"
                    placeholder="Enter your email"
-                   onChange={event => setEmail(event.target.name)}
+                   onChange={event => setEmail(event.target.value)}
                    id="login-email"
             />
             <br />
             <label className="password-label">Password:</label>
             <br />
             <input
-                name={password}
+                value={password}
                 type="password"
                 className="form-control"
                 placeholder="Enter a password"
                 id="signup-password"
-                onChange={event => setPassword(event.target.name)}
+                onChange={event => setPassword(event.target.value)}
             />
             <br />
             {/* <button type="submit" className="signup-btn">Sign Up</button> */}
