@@ -4,10 +4,10 @@ import axios from "axios";
 
 export default {
 
-    signup: function() {
-        const username = document.getElementById("signup-username").value
-        const password = document.getElementById("signup-password").value
-        const email = document.getElementById("signup-email").value
+    signup: function(username,email,password) {
+        // const username = document.getElementById("signup-username").value
+        // const password = document.getElementById("signup-password").value
+        // const email = document.getElementById("signup-email").value
 
         const newUser = {
             username: username,
@@ -23,6 +23,8 @@ export default {
                                 password: password
                 })
 
+        }).then(res =>{
+            axios.get("/api/user/user_data").then(res =>console.log(res.data.username +" has been logged in"))
         })
 
     }
