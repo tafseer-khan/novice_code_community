@@ -10,7 +10,7 @@ import React from "react";
 
 const styles = {
   headerStyle: {
-    background: "red"
+    background: "cadetblue"
   },
   headingStyle: {
     fontSize: 100
