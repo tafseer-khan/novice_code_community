@@ -3,7 +3,7 @@ var bcrypt = require("bcryptjs")
 
 const userSchema = new mongoose.Schema({
     // Giving the User model a first name of type STRING
-      username: {type: String,required: true, minlength:1,maxlength:2},
+      username: {type: String,required: true, minlength:1,maxlength:20},
 
       email:   {type: String,required:true},
 
