@@ -6,6 +6,15 @@ function LoginForm() {
     // const [email, setEmail] = useState('');
     // const [password, setPassword] = useState('');
 
+    // handleInputChange = event => {
+    //     const { email, value } = event.target;
+    //     const { password, value } = event.target;
+    // }
+
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
+    // }
+
     return (
         <form className="login-form">
             <div className="form-group">
