@@ -1,37 +1,40 @@
 import React, { useState } from 'react';
+import Signup from "../utils/signupScript"
+
+
 
 function SignupForm() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('Signup submitted');
-    }
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     console.log('Signup submitted');
+    // }
 
     return (
-        <form onSubmit={handleSubmit} className="form-group">
+        <form className="form-group">
             <label className="username-label">Username:</label>
             <br />
             <input
-                type="text"
+                type="username"
                 name={username}
                 className="form-control"
                 placeholder="Choose a username"
+                id = "signup-username"
                 onChange={event => setUsername(event.target.name)}
-                id="signup-username"
             />
             <br />
             <label className="email-label">Email:</label>
             <br />
             <input
-                name={email}
-                type="email"
-                className="form-control"
-                placeholder="Enter your email"
-                onChange={event => setEmail(event.target.name)}
-                id="signup-email"
+                   name={email}
+                   type="email"
+                   className="form-control"
+                   placeholder="Enter your email"
+                   onChange={event => setEmail(event.target.name)}
+                   id="login-email"
             />
             <br />
             <label className="password-label">Password:</label>
@@ -41,12 +44,14 @@ function SignupForm() {
                 type="password"
                 className="form-control"
                 placeholder="Enter a password"
-                onChange={event => setPassword(event.target.name)}
                 id="signup-password"
+                onChange={event => setPassword(event.target.name)}
             />
             <br />
-            <button type="submit" className="signup-btn">Sign Up</button>
-        </form>        
+            {/* <button type="submit" className="signup-btn">Sign Up</button> */}
+            <button className="signup-btn" onClick={()=>Signup.signup()} >Sign Up</button>
+        </form>
+        
     )
 }
 

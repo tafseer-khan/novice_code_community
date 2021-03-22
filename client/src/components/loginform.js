@@ -6,7 +6,7 @@ function LoginForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Loggin submitted');
+        console.log('Login submitted');
     }
 
     return (
@@ -35,6 +35,7 @@ function LoginForm() {
                 />
                 <br />
                 <button type="submit" className="login-btn">Login</button>
+                {/* <button className="login-btn" onClick={()=>Login.login()} >Login</button> */}
             </div>
         </form>
     )
