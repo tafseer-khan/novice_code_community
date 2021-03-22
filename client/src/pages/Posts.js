@@ -18,8 +18,8 @@ function Posts() {
     const [formObject, setFormObject] = useState([])
     //testing state with jotai below
     const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
-    console.log(areWeLoggedIn)
-    const newLoggedInStatus
+    // console.log(areWeLoggedIn)
+    // const newLoggedInStatus
     
 
     useEffect(() => {
