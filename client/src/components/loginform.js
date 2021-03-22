@@ -1,43 +1,35 @@
-import React from 'react';
-const passport = require('passport-local');
-const axios = require('axios');
+import React, { useState } from 'react';
 
 function LoginForm() {
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    // handleInputChange = event => {
-    //     const { email, value } = event.target;
-    //     const { password, value } = event.target;
-    // }
-
-    // handleFormSubmit = event => {
-    //     event.preventDefault();
-    // }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('Loggin submitted');
+    }
 
     return (
-        <form className="login-form">
+        <form onSubmit={handleSubmit} className="login-form">
             <div className="form-group">
                 <label className="email-label">Email:</label>
                 <br />
                 <input
-                    name="email"
+                    name={email}
                     type="email"
                     className="form-control"
                     placeholder="Enter your email"
-                    // value={email}
-                    // onChange={setEmail}
+                    onChange={event => setEmail(event.target.name)}
                 />
                 <br />
                 <label className="password-label">Password:</label>
                 <br />
                 <input
-                    name="password"
+                    name={password}
                     type="password"
                     className="form-control"
                     placeholder="Enter a password"
-                    // value={password}
-                    // onChange={setPassword}
+                    onChange={event => setPassword(event.target.name)}
                 />
                 <br />
                 <button type="submit" className="login-btn">Login</button>

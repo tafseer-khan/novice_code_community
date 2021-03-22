@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home"
 import CSS from "./pages/CSS"
@@ -11,12 +11,6 @@ import "./style.css";
 
 
 function App() {
-    const [token, setToken] = useState();
-
-    // if(!token) {
-    //     return <Home setToken = {setToken} />
-    // }
-
     return (
         <div>
             <Router>

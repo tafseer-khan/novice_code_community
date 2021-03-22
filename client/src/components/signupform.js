@@ -1,13 +1,14 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
-function SignupForm(props) {
+function SignupForm() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Signed up');
+        console.log('Signup submitted');
     }
 
     return (
@@ -16,33 +17,30 @@ function SignupForm(props) {
             <br />
             <input
                 type="text"
-                // name="username"
+                name={username}
                 className="form-control"
                 placeholder="Choose a username"
-                value={name}
-                onChange={event => setUsername(event.target.value)}
+                onChange={event => setUsername(event.target.name)}
             />
             <br />
             <label className="email-label">Email:</label>
             <br />
             <input
-                // name="email"
+                name={email}
                 type="email"
                 className="form-control"
                 placeholder="Enter your email"
-                value={name}
-                onChange={event => setEmail(event.target.value)}
+                onChange={event => setEmail(event.target.name)}
             />
             <br />
             <label className="password-label">Password:</label>
             <br />
             <input
-                // name="password"
+                name={password}
                 type="password"
                 className="form-control"
                 placeholder="Enter a password"
-                value={name}
-                onChange={event => setPassword(event.target.value)}
+                onChange={event => setPassword(event.target.name)}
             />
             <br />
             <button type="submit" className="signup-btn">Sign Up</button>
