@@ -16,10 +16,17 @@ function Posts() {
 
     const [posts, setPosts] = useState([])
     const [formObject, setFormObject] = useState([])
-    //testing state with jotai below
+    //testing state with jotai below the initial state is loggedIn which is set to false which also sets areWeLoggedIn to false
+    //then we run the newLoggedInStatus to change the areWeLoggedIn state to true
     const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
+
     console.log(areWeLoggedIn)
-    const newLoggedInStatus
+
+    const newLoggedInStatus=()=>{
+        changeLoggedIn(true)
+        
+    }
+    
     
 
     useEffect(() => {
