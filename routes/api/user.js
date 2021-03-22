@@ -6,15 +6,20 @@ const User = require("../../models/user")
  // Login route, will authenticate through passport and create a current session for the user. 
   router.post("/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user.username);
+    console.log("hello")
   });
 
   // Posts new user 
   router.post('/createUser', (req, res) => {
-    const {email,password,username} = req.body;
+    console.log("create user")
+    console.log(req.body)
+    const {email,password,username} = req.body.newUser;
+    console.log (email,password,username)
     User.findOne({email: email}, (err,mail) =>{
       if (err) console.log(err);
       else if (mail) res.json({error:`${email} is already registered on this account, please login.`});
       else if (!mail){
+        console.log("nomail")
         User.findOne({username: username},(err,user) =>{
           if (err) console.log(err);
           else if (user) res.json({error: `${username} is already in use, please use another username.`});
@@ -24,8 +29,9 @@ const User = require("../../models/user")
               password: password,
               email: email
             });
+            console.log(newUser)
             newUser.save((err, savedUser) =>{
-              if(err) return res.jsson(err);
+              if(err) return res.json(err);
               res.json(savedUser)
             })
           }
