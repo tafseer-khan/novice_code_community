@@ -8,7 +8,7 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SignUpButton from "../components/SignUpButton";
-import {useAtom} from "jotai";
+import { useAtom } from "jotai";
 import { loggedIn } from "../Atoms";
 
 
@@ -18,11 +18,20 @@ function Posts() {
     const [posts, setPosts] = useState([])
     const [video, setVideo] = useState([])
     const [formObject, setFormObject] = useState([])
-    //testing state with jotai below
+    //testing state with jotai below the initial state is loggedIn which is set to false which also sets areWeLoggedIn to false
+    //then we run the newLoggedInStatus to change the areWeLoggedIn state to true
     const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
-    // console.log(areWeLoggedIn)
-    // const newLoggedInStatus
-    
+
+    console.log(areWeLoggedIn)
+
+    const newLoggedInStatus = (e) => {
+        e.preventDefault()
+        changeLoggedIn(true)
+
+    }
+
+
+
 
     useEffect(() => {
         loadPosts()
@@ -128,7 +137,7 @@ function Posts() {
                     />
 
 
-
+                    <button onClick={newLoggedInStatus}>change logged in status</button>
                     {areWeLoggedIn === false ? (
 
                         <FormBtn >
@@ -139,17 +148,17 @@ function Posts() {
 
                     ) : (
 
-                            <FormBtn
+                        <FormBtn
 
                                 // disabled={!(formObject.username && formObject.message)}
-                                onClick={handleFormSubmit}
+                            onClick={handleFormSubmit}
 
-                            >
+                        >
 
-                                Submit
+                            Submit
 
-                            </FormBtn>
-                        )}
+                        </FormBtn>
+                    )}
 
 
                 </form>
