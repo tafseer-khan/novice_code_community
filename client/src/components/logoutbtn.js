@@ -16,8 +16,8 @@ function LogoutBtn() {
 
 
     return (
-        <div>
-            <button onClick={newLoggedInStatus} >Logout</button>
+        <div className="button holder" style={{margin: "8px"}}>
+            <button style={{float: "right", height: "100%"}} onClick={newLoggedInStatus} >Logout</button>
         </div>
     )
 } export default LogoutBtn

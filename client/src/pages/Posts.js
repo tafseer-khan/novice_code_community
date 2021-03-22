@@ -141,11 +141,11 @@ function Posts() {
                     
                     {areWeLoggedIn === false ? (
 
-                        <FormBtn >
+                        
 
-                            <SignUpButton />
+                        <SignUpButton />
 
-                        </FormBtn>
+                        
 
                     ) : (
 

@@ -1,7 +1,7 @@
 .button{
 
     font-family: 'Syne Mono', monospace;
-    position: absolute; top: 5px; right: 5px;
+    float: right;
 
     color: white;
     background-color: rgb(92, 92, 124);
