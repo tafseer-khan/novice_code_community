@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import SignUpButton from "../components/SignUpButton";
 
 
 
@@ -47,8 +48,10 @@ function Posts() {
                 message: formObject.Message,
 
             })
-                .then(res => {loadPosts()
-                console.log(res)})
+                .then(res => {
+                    loadPosts()
+                    console.log(res)
+                })
                 .catch(err => console.log(err));
         }
         if (formObject.Subject) {
@@ -64,65 +67,86 @@ function Posts() {
                 let videoID = res.data.items[0].id.videoId;
                 let videoLink = "https://www.youtube.com/embed/" + videoID
                 // <iframe width="560" height="315" src=videoLink title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                }
+            }
             )
             .catch(err => console.log(err));
     };
 
-        return (
+    //use this to decide state of sign in
+    const signedIn= false;
 
-            <Container fluid>
-                
-                    <Col size="col-lg">
+    return (
 
-                        {posts.length ? (
-                            <List>
-                                {posts.map(post => (
-                                    <ListItem key={post._id}>
-                                        <Link to={"/posts/" + post._id}>
-                                            <strong>
-                                                {post.username} said {post.content} 
-                                            </strong>
-                                        </Link>
-                                        <DeleteBtn onClick={() => deletePost(post._id)} />
-                                    </ListItem>
-                                ))}
+        <Container fluid>
 
-                            </List>
-                        ) : (
+            <Col size="col-lg">
+
+                {posts.length ? (
+                    <List>
+                        {posts.map(post => (
+                            <ListItem key={post._id}>
+                                <Link to={"/posts/" + post._id}>
+                                    <strong>
+                                        {post.username} said {post.content}
+                                    </strong>
+                                </Link>
+                                <DeleteBtn onClick={() => deletePost(post._id)} />
+                            </ListItem>
+                        ))}
+
+                    </List>
+                ) : (
                         <h3>No chat yet</h3>
-                        )}
-                        
-                        <form>
-                            <Input
-                                onChange={handleInputChange}
-                                name="Username"
-                                placeholder="Username will eventually fill this (automatically hidden)"
-                            />
-                            <Input
-                                onChange={handleInputChange}
-                                name="Subject"
-                                placeholder="Subject"
-                            />
-                            <Input
-                                onChange={handleInputChange}
-                                name="Message"
-                                placeholder="What would you like to ask?"
-                            />
-                            
+                    )}
+
+                <form>
+                    <Input
+                        onChange={handleInputChange}
+                        name="Username"
+                        placeholder="Username will eventually fill this (automatically hidden)"
+                    />
+                    <Input
+                        onChange={handleInputChange}
+                        name="Subject"
+                        placeholder="Subject"
+                    />
+                    <Input
+                        onChange={handleInputChange}
+                        name="Message"
+                        placeholder="What would you like to ask?"
+                    />
+
+
+
+                    {signedIn === false ? (
+
+                        <FormBtn >
+
+                            <SignUpButton />
+
+                        </FormBtn>
+
+                    ) : (
+
                             <FormBtn
+
                                 // disabled={!(formObject.username && formObject.message)}
                                 onClick={handleFormSubmit}
-                            >
-                                Submit
-                            </FormBtn>
 
-                        </form>
-                        
-                    </Col>
-                    
-                
-            </Container>
-        )
-    }
+                            >
+
+                                Submit
+
+                            </FormBtn>
+                        )}
+
+
+                </form>
+
+            </Col>
+
+
+        </Container>
+    )
+}
 export default Posts
