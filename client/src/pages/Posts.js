@@ -7,7 +7,7 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SignUpButton from "../components/SignUpButton";
-import {useAtom} from "jotai";
+import { useAtom } from "jotai";
 import { loggedIn } from "../Atoms";
 
 
@@ -22,12 +22,14 @@ function Posts() {
 
     console.log(areWeLoggedIn)
 
-    const newLoggedInStatus=()=>{
+    const newLoggedInStatus = (e) => {
+        e.preventDefault()
         changeLoggedIn(true)
-        
+
     }
-    
-    
+
+
+
 
     useEffect(() => {
         loadPosts()
@@ -133,7 +135,7 @@ function Posts() {
                     />
 
 
-
+                    <button onClick={newLoggedInStatus}>change logged in status</button>
                     {areWeLoggedIn === false ? (
 
                         <FormBtn >
@@ -144,17 +146,17 @@ function Posts() {
 
                     ) : (
 
-                            <FormBtn
+                        <FormBtn
 
                                 // disabled={!(formObject.username && formObject.message)}
-                                onClick={handleFormSubmit}
+                            onClick={handleFormSubmit}
 
-                            >
+                        >
 
-                                Submit
+                            Submit
 
-                            </FormBtn>
-                        )}
+                        </FormBtn>
+                    )}
 
 
                 </form>
