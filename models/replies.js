@@ -11,9 +11,9 @@ const postSchema = new Schema({
 
   images: {type: String},
 
-  refId: {type:Number,required: true}
+  refId: {type:String,required: true}
 });
 
-const Post = mongoose.model("Userpost", postSchema);
+const Reply = mongoose.model("Userreply", postSchema);
 
-module.exports = Post;
+module.exports = Reply;
