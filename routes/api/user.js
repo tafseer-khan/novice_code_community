@@ -44,8 +44,10 @@ const User = require("../../models/user")
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        username: req.user.username
+        username: req.user.username,
+        id: (req.user._id)
       });
+      // console.log(req.body)
     }
   });
 module.exports = router;
