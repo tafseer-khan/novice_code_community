@@ -42,7 +42,7 @@ function SignupForm() {
                 onChange={setPassword}
             />
             <br />
-            <button type="submit" className="signup-btn" onClick={handleSubmit}>Sign Up</button>
+            <button type="submit" className="signup-btn" onClick={() => [setUsername, setEmail, setPassword]}>Sign Up</button>
         </div>
         
     )

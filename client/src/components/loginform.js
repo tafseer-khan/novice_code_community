@@ -31,7 +31,7 @@ function LoginForm() {
                     onChange={setPassword}
                 />
                 <br />
-                <button type="submit" className="login-btn" onClick={handleSubmit}>Login</button>
+                <button type="submit" className="login-btn">Login</button>
             </div>
         </form>
     )
