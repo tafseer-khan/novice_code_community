@@ -8,13 +8,13 @@ function SignupForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     console.log('Signup submitted');
-    // }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('Signup submitted');
+    }
 
     return (
-        <form className="form-group">
+        <form onSubmit={handleSubmit} className="form-group">
             <label className="username-label">Username:</label>
             <br />
             <input
@@ -48,8 +48,8 @@ function SignupForm() {
                 onChange={event => setPassword(event.target.value)}
             />
             <br />
-            {/* <button type="submit" className="signup-btn">Sign Up</button> */}
-            <button className="signup-btn" onClick={()=>Signup.signup()} >Sign Up</button>
+            <button type="submit" className="signup-btn">Sign Up</button>
+            {/* <button className="signup-btn" onClick={()=>Signup.signup()} >Sign Up</button> */}
         </form>
         
     )

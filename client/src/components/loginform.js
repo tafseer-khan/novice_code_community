@@ -4,13 +4,13 @@ function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     console.log('Login submitted');
-    // }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('Login submitted');
+    }
 
     return (
-        <form className="login-form">
+        <form onSubmit={handleSubmit} className="login-form">
             <div className="form-group">
                 <label className="email-label">Email:</label>
                 <br />
@@ -34,8 +34,8 @@ function LoginForm() {
                     id="login-password"
                 />
                 <br />
-                {/* <button type="submit" className="login-btn">Login</button> */}
-                <button className="login-btn" onClick={()=>Login.login()} >Login</button>
+                <button type="submit" className="login-btn">Login</button>
+                {/* <button className="login-btn" onClick={()=>Login.login()} >Login</button> */}
             </div>
         </form>
     )
