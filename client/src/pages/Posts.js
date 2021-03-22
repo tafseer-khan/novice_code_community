@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
+import Youtube from "../utils/Youtube";
 import { Link } from "react-router-dom"
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SignUpButton from "../components/SignUpButton";
-import {useAtom} from "jotai";
+import { useAtom } from "jotai";
 import { loggedIn } from "../Atoms";
 
 
@@ -15,12 +16,22 @@ import { loggedIn } from "../Atoms";
 function Posts() {
 
     const [posts, setPosts] = useState([])
+    const [video, setVideo] = useState([])
     const [formObject, setFormObject] = useState([])
-    //testing state with jotai below
+    //testing state with jotai below the initial state is loggedIn which is set to false which also sets areWeLoggedIn to false
+    //then we run the newLoggedInStatus to change the areWeLoggedIn state to true
     const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
-    // console.log(areWeLoggedIn)
-    // const newLoggedInStatus
-    
+
+    console.log(areWeLoggedIn)
+
+    const newLoggedInStatus = (e) => {
+        e.preventDefault()
+        changeLoggedIn(true)
+
+    }
+
+
+
 
     useEffect(() => {
         loadPosts()
@@ -72,8 +83,8 @@ function Posts() {
         Youtube.getVideos(searchTerms)
             .then(res => {
                 let videoID = res.data.items[0].id.videoId;
-                let videoLink = "https://www.youtube.com/embed/" + videoID
-                // <iframe width="560" height="315" src=videoLink title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                let videoLink = "https://www.youtube.com/embed/" + videoID;
+                setVideo(videoLink);
             }
             )
             .catch(err => console.log(err));
@@ -126,7 +137,7 @@ function Posts() {
                     />
 
 
-
+                    <button onClick={newLoggedInStatus}>change logged in status</button>
                     {areWeLoggedIn === false ? (
 
                         <FormBtn >
@@ -137,20 +148,27 @@ function Posts() {
 
                     ) : (
 
-                            <FormBtn
+                        <FormBtn
 
                                 // disabled={!(formObject.username && formObject.message)}
-                                onClick={handleFormSubmit}
+                            onClick={handleFormSubmit}
 
-                            >
+                        >
 
-                                Submit
+                            Submit
 
-                            </FormBtn>
-                        )}
+                        </FormBtn>
+                    )}
 
 
                 </form>
+
+                {video.length > 0 ? (
+                        <iframe width="560" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                    ) : (
+                        null
+                )}
 
             </Col>
 
