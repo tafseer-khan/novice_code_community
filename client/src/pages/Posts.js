@@ -138,13 +138,14 @@ function Posts() {
 
 
                     <button onClick={newLoggedInStatus}>change logged in status</button>
+                    
                     {areWeLoggedIn === false ? (
 
-                        <FormBtn >
+                        
 
-                            <SignUpButton />
+                        <SignUpButton />
 
-                        </FormBtn>
+                        
 
                     ) : (
 

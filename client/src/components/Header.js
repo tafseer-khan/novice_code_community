@@ -1,4 +1,5 @@
 import React from "react";
+import LogoutBtn from "./LogoutBtn"
 
 
 // By importing the Header.css file, it is added to the DOM whenever this component loads
@@ -23,6 +24,7 @@ function Header() {
   return (
     <header style={styles.headerStyle} className="header">
       <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
+      <LogoutBtn />
     </header>
   );
 }

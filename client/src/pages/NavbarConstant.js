@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
+import LogoutBtn from "../components/LogoutBtn";
 
 function NavbarConstant() {
 
@@ -22,6 +23,8 @@ function NavbarConstant() {
                             <Link to="/Javascript" className={window.location.pathname === "/Javascript" ? "nav-link active" : "nav-link"}>Javascript</Link>
                         </li>
 
+                        
+
 
 
                     </ul>
@@ -29,6 +32,7 @@ function NavbarConstant() {
 
 
                 </div>
+                
                 
 
             </nav>
