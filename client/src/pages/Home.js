@@ -4,6 +4,7 @@ import NavbarConstant from "./NavbarConstant";
 import Posts from "./Posts"
 import ResourcesHolder from "../components/ResourcesHolder"
 import { Row } from "../components/Grid";
+import SignUpButton from "../components/SignUpButton";
 
 
 
@@ -17,6 +18,7 @@ function Home() {
         <div>
 
             <NavbarConstant />
+
 
 
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import "./style.css";
 
 function SignUpButton() {
@@ -6,7 +7,7 @@ function SignUpButton() {
     return (
 
         <div className="button" >
-            <Link to="/" className={window.location.pathname === "/" ? "button" : "button"}>Signup/Login</Link>
+            <Link to="/" className={window.location.pathname === "/" ? "button" : "button"}>Sign Up or Login to Chat</Link>
         </div>
 
 
