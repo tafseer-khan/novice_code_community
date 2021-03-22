@@ -1,5 +1,7 @@
 import React from "react";
-import LogoutBtn from "./logoutbtn"
+import { loggedIn } from "../Atoms";
+import {useAtom} from "jotai";
+import LogoutBtn from "./logoutbtn";
 
 
 // By importing the Header.css file, it is added to the DOM whenever this component loads
@@ -21,11 +23,28 @@ const styles = {
 // We use JSX curly braces to evaluate the style object
 
 function Header() {
+  const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
+
+
   return (
-    <header style={styles.headerStyle} className="header">
-      <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
-      <LogoutBtn />
-    </header>
+    <div>
+      {areWeLoggedIn === false ? (
+      <header style={styles.headerStyle} className="header">
+        <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
+      
+      </header>
+    ):(
+      <header style={styles.headerStyle} className="header">
+        <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
+        <LogoutBtn />
+      </header>
+
+
+    )}
+
+    </div>
+    
+    
   );
 }
 
