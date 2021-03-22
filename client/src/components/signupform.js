@@ -20,6 +20,7 @@ function SignupForm() {
                 className="form-control"
                 placeholder="Choose a username"
                 onChange={event => setUsername(event.target.name)}
+                id = "signup-username"
             />
             <br />
             <label className="email-label">Email:</label>
@@ -30,6 +31,7 @@ function SignupForm() {
                 className="form-control"
                 placeholder="Enter your email"
                 onChange={event => setEmail(event.target.name)}
+                id = "signup-email"
             />
             <br />
             <label className="password-label">Password:</label>
@@ -40,11 +42,11 @@ function SignupForm() {
                 className="form-control"
                 placeholder="Enter a password"
                 onChange={event => setPassword(event.target.name)}
+                id="signup-password"
             />
             <br />
             <button type="submit" className="signup-btn">Sign Up</button>
-        </form>
-        
+        </form>        
     )
 }
 
