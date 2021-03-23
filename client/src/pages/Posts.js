@@ -10,7 +10,7 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 import SignUpButton from "../components/SignUpButton";
 import { useAtom } from "jotai";
 import { loggedIn } from "../Atoms";
-import { usingUsername } from "../Atoms"
+import { usernameG } from "../Atoms"
 
 
 
@@ -24,8 +24,8 @@ function Posts() {
     const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
 
     //creates the global zeUsername variable
-    const [zeUsername, hopingTheUsernameGetsSet] = useAtom(usingUsername)
-    console.log(zeUsername)
+    const [postUsername, hopingTheUsernameGetsSet] = useAtom(usernameG)
+    console.log(postUsername)
 
 
     
@@ -151,8 +151,8 @@ function Posts() {
                         <form>
                             <Input
                                 onChange={handleInputChange}
-                                name={zeUsername}
-                                placeholder={`Username is ${zeUsername} `}
+                                name={postUsername}
+                                placeholder={`Username is ${postUsername} `}
                             />
                             <Input
                                 onChange={handleInputChange}
