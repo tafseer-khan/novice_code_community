@@ -29,6 +29,7 @@ export default {
         axios.post("/api/user/createUser", {
             newUser
         }).then(res => {
+
             if(res.data.error == "email in use"){
                 alert("Email has already been registered")
             }
@@ -41,8 +42,13 @@ export default {
                     email: email,
                     password:password
                 })                
+<<<<<<< HEAD
                 .then(()=>{(axios.get("/api/user/user_data").then((res)=>{retrieveUsername(res.data.username);
                 loggedInCheck(true)}))
+=======
+                .then(()=>{(axios.get("/api/user/user)data"))
+
+>>>>>>> daf466881a48c99944d1a26981e964c8967109bc
             })
             console.log(res.data.username + " has logged in")
             document.getElementById("signup-username").value = ""
