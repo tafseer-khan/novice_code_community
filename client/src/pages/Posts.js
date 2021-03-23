@@ -11,6 +11,7 @@ import SignUpButton from "../components/SignUpButton";
 import { useAtom } from "jotai";
 import { loggedIn } from "../Atoms";
 import { usernameG } from "../Atoms"
+import axios from "axios";
 
 
 
@@ -69,11 +70,21 @@ function Posts() {
     function handleFormSubmit(event) {
         event.preventDefault();
         console.log("handle form")
-        if (formObject.Username && formObject.Message) {
-            API.savePost({
-                username: formObject.Username,
-                message: formObject.Message,
-
+        console.log(postUsername)
+        console.log(document.getElementById("active").textContent)
+        let activepage = document.getElementById("active").textContent
+        // let newPost ={
+        //     username: postUsername,
+        //     content: formObject.Message,
+        //     title: formObject.Subject,
+        //     category: activepage
+        // }
+        if (postUsername && formObject.Message) {
+            axios.post("/api/posts/",{
+                username: postUsername,
+                content: formObject.Message,
+                title: formObject.Subject,
+                category: activepage
             })
                 .then(res => {
                     loadPosts()
