@@ -7,7 +7,9 @@ function CSS() {
     <div>
       <NavbarConstant />
 
-      <div style={{ float: "left", width: "50%" }}>
+      <div style={{ float: "left", width: "35%" }}>
+
+          
         <h2>CSS Resources</h2>
         <br></br>
         <h5>What is CSS?</h5>

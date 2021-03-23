@@ -10,7 +10,7 @@ function HTML(){
             
             <NavbarConstant />
             
-            <div style={{float: "left" , width: "50%"}}>
+            <div style={{float: "left" , width: "35%"}}>
 
                 <h2>HTML Resources</h2>
                 <br></br>
@@ -31,7 +31,7 @@ function HTML(){
 
             </div >
 
-            <div style={{float: "right" , width: "50%" , marginTop: "2%"}}>
+            <div style={{float: "right" , width: "35%" , marginTop: "2%"}}>
             <Posts />
 
             </div>
