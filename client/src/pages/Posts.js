@@ -25,21 +25,7 @@ function Posts() {
 
     //creates the global zeUsername variable
     const [postUsername, hopingTheUsernameGetsSet] = useAtom(usernameG)
-    console.log(postUsername)
-
-
     
-    
-
-    console.log(areWeLoggedIn)
-
-    const newLoggedInStatus = (e) => {
-        e.preventDefault()
-        changeLoggedIn(true)
-
-    }
-
-
 
 
     useEffect(() => {
@@ -139,7 +125,7 @@ function Posts() {
                     >
 
                         <SignUpButton />
-                        <button onClick={newLoggedInStatus}>change logged in status</button>
+                        
 
                     </div>
 
