@@ -29,7 +29,10 @@ router.route("/:id")
 
 router.get("/category/:category",(req,res) => {
   db.Post.find({'category':req.params.category}).sort({date: -1})
-  .then(results => res.json(results))
+  .then(results => {
+    res.json(results)
+    return(results)
+  })
 })
 
 router.post("/", (req,res) => {

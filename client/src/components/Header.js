@@ -37,7 +37,7 @@ function Header() {
       </header>
     ):(
       <header style={styles.headerStyle} className="header">
-        <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
+        <h1 className="thehone" style={styles.headingStyle}>Novice Coding Connection</h1>
 
       </header>
 
