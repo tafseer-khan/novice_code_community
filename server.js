@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/public"));
+  app.use(express.static("client/build"));
 }
 else {app.use(express.static("client/public"))}
 
@@ -24,12 +24,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(routes);
 
-
-
-
-// <------ this might need to be exported in it's file, I'm not sure.
-// Connect to the Mongo DB
-// 
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ncc",
 {useNewUrlParser: true,

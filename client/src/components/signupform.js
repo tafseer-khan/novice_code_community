@@ -10,8 +10,7 @@ function SignupForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        Signup.signup(username,email,password);
-        console.log('Signup submitted');
+        Signup.signup(username,email,password)
     }
 
     return (
@@ -35,7 +34,7 @@ function SignupForm() {
                    className="form-control"
                    placeholder="Enter your email"
                    onChange={event => setEmail(event.target.value)}
-                   id="login-email"
+                   id="signup-email"
             />
             <br />
             <label className="password-label">Password:</label>

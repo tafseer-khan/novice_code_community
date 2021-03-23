@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Login from "../utils/loginScript";
 
 function LoginForm() {
     const [email, setEmail] = useState('');
@@ -6,7 +7,7 @@ function LoginForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Login submitted');
+        Login.login(email,password)
     }
 
     return (
