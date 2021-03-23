@@ -1,4 +1,7 @@
 import axios from "axios";
+import { useAtom } from "jotai";
+import { usernameG } from "../Atoms"
+import {loggedIn} from "../Atoms"
 
 
 
@@ -6,7 +9,17 @@ import axios from "axios";
 
 export default {
 
+    
+
     signup: function(username,email,password) {
+
+        const [whatIsTheUsername, retrieveUsername] = useAtom(usernameG)
+        console.log(whatIsTheUsername)
+        const [areWeLoggedIn, loggedInCheck] = useAtom(loggedIn)
+        console.log(areWeLoggedIn)
+        
+        
+        
         
         const newUser = {
             username: username,
@@ -28,7 +41,8 @@ export default {
                     email: email,
                     password:password
                 })                
-                .then(()=>{(axios.get("/api/user/user)data"))
+                .then(()=>{(axios.get("/api/user/user_data").then((res)=>{retrieveUsername(res.data.username);
+                loggedInCheck(true)}))
             })
             console.log(res.data.username + " has logged in")
             document.getElementById("signup-username").value = ""
@@ -37,9 +51,12 @@ export default {
             document.getElementById("login-email").value = ""
             document.getElementById("login-password").value = ""
             //insert state change here
-            }
+            
+                
+            
+            
         }                 
-        )
+    })
 
     }
 }
