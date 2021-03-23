@@ -163,11 +163,13 @@ function Posts() {
                                 onChange={handleInputChange}
                                 name="Subject"
                                 placeholder="Subject"
+                                maxLength="20"
                             />
-                            <Input
+                            <TextArea
                                 onChange={handleInputChange}
                                 name="Message"
                                 placeholder="What would you like to ask?"
+                                style={{height: "100px"}}
                             />
 
                             <FormBtn
