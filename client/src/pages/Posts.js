@@ -144,7 +144,7 @@ function Posts() {
                     >
 
                         <SignUpButton />
-                        <button onClick={newLoggedInStatus}>change logged in status</button>
+                        
 
                     </div>
 
