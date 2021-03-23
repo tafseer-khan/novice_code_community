@@ -25,12 +25,6 @@ app.use(passport.session());
 app.use(routes);
 
 
-
-
-// <------ this might need to be exported in it's file, I'm not sure.
-// Connect to the Mongo DB
-// 
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ncc",
 {useNewUrlParser: true,
   useUnifiedTopology: true,
