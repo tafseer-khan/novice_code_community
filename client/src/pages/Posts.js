@@ -187,7 +187,10 @@ function Posts() {
 
 
                 {video.length > 0 ? (
-                    <iframe width="560" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div style={{marginTop: "75px"}}>
+                        <h3>Need more help? Watch this!</h3>
+                        <iframe width="500" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
 
                 ) : (
                         null
