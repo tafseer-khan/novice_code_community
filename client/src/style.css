@@ -30,17 +30,27 @@ p, li {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* .form-group {
-    width: 300px;
-    padding: 40px;
-    position: center;
-    top: 50%;
-    left: 50%;
-    background:  rgb(98, 120, 121);
-    text-align: absolute;
-    transition: 0.25s;
-    margin-top: 100px;
-    font-family: 'Montserrat', sans-serif;
-  
+@media only screen and (max-width: 500px){
 
-} */
+    .header{
+        width: calc(100% - 1.25rem);
+        font-size: 1rem;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: cadetblue;
+    }
+    .theheaderholder{
+        background-color: cadetblue;
+        width: 100%;
+    }
+    
+
+
+
+
+
+
+}
+
