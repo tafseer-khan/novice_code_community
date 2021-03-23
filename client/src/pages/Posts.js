@@ -73,12 +73,6 @@ function Posts() {
         console.log(postUsername)
         console.log(document.getElementById("active").textContent)
         let activepage = document.getElementById("active").textContent
-        // let newPost ={
-        //     username: postUsername,
-        //     content: formObject.Message,
-        //     title: formObject.Subject,
-        //     category: activepage
-        // }
         if (postUsername && formObject.Message) {
             axios.post("/api/posts/",{
                 username: postUsername,
