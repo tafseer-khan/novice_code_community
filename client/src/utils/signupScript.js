@@ -25,7 +25,7 @@ export default {
         }).then(res =>{
             axios.get("/api/user/user_data")
             .then(res =>{
-                console.log(res.data.username +" has been logged in")
+                console.log(res.data.username + " has been logged in")
                 if(res.data.username !== null){
                     // Change state here
                 }
