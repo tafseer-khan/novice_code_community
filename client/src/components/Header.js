@@ -13,7 +13,8 @@ import LogoutBtn from "./logoutbtn";
 
 const styles = {
   headerStyle: {
-    background: "cadetblue"
+    background: "cadetblue",
+    display: "flex"
   },
   headingStyle: {
     textAlign: "center",

@@ -42,13 +42,8 @@ export default {
                     email: email,
                     password:password
                 })                
-<<<<<<< HEAD
                 .then(()=>{(axios.get("/api/user/user_data").then((res)=>{retrieveUsername(res.data.username);
                 loggedInCheck(true)}))
-=======
-                .then(()=>{(axios.get("/api/user/user)data"))
-
->>>>>>> daf466881a48c99944d1a26981e964c8967109bc
             })
             console.log(res.data.username + " has logged in")
             document.getElementById("signup-username").value = ""
