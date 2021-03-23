@@ -48,10 +48,18 @@ function Posts() {
     }, [])
 
     function loadPosts() {
-        API.getUserPost()
-            .then(res =>
-                setPosts(res.data)
-            )
+        let activepage = document.getElementById("active").textContent
+        axios.get("/api/posts/category/"+activepage)
+        .then((res)=>{
+            setPosts(res.data)
+            console.log(res)
+        })
+        // console.log(res)
+            // .then((res) =>{
+            //     console.log(res)
+                // setPosts(res.data)
+            // }
+            // )
             .catch(err => console.log(err));
 
     };
@@ -80,9 +88,8 @@ function Posts() {
                 title: formObject.Subject,
                 category: activepage
             })
-                .then(res => {
+                .then(() => {
                     loadPosts()
-                    console.log(res)
                 })
                 .catch(err => console.log(err));
         }

@@ -13,7 +13,7 @@ function NavbarConstant() {
         <div>
             {areWeLoggedIn === false ? (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to="/"> Home </Link>
+                <Link className="navbar-brand" to="/"id={window.location.pathname === "/" ? "active" : "inactive"}> Home </Link>
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav">
                         <li className="nav-item">
@@ -32,7 +32,7 @@ function NavbarConstant() {
             </nav>
             ):(
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to="/"> Home </Link>
+                <Link className="navbar-brand" to="/"id={window.location.pathname === "/" ? "active" : "inactive"}> Home </Link>
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav">
                         <li className="nav-item">
