@@ -10,6 +10,7 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 import SignUpButton from "../components/SignUpButton";
 import { useAtom } from "jotai";
 import { loggedIn } from "../Atoms";
+import { usingUsername } from "../Atoms"
 
 
 
@@ -21,6 +22,14 @@ function Posts() {
     //testing state with jotai below the initial state is loggedIn which is set to false which also sets areWeLoggedIn to false
     //then we run the newLoggedInStatus to change the areWeLoggedIn state to true
     const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
+
+    //creates the global zeUsername variable
+    const [zeUsername, hopingTheUsernameGetsSet] = useAtom(usingUsername)
+    console.log(zeUsername)
+
+
+    
+    
 
     console.log(areWeLoggedIn)
 
@@ -116,66 +125,68 @@ function Posts() {
 
                     </List>
                 ) : (
-                        <h3>No chat yet</h3>
+                        <h3>No chat yet, non-signed in will be able to view posts, but not submit their own</h3>
                     )}
 
-                <form>
-                    <Input
-                        onChange={handleInputChange}
-                        name="Username"
-                        placeholder="Username will eventually fill this (automatically hidden)"
-                    />
-                    <Input
-                        onChange={handleInputChange}
-                        name="Subject"
-                        placeholder="Subject"
-                    />
-                    <Input
-                        onChange={handleInputChange}
-                        name="Message"
-                        placeholder="What would you like to ask?"
-                    />
 
 
-                    
-                    
-                    {areWeLoggedIn === false ? (
 
-                        <div  //if areWeLoggedIn equals false the sign up button is displayed, if not- the form submit button is displayed
-                        >
-                            
-                            <SignUpButton />
-                            <button onClick={newLoggedInStatus}>change logged in status</button>
 
-                        </div>
 
-                        
+                {areWeLoggedIn === false ? (
 
-                        
+                    <div  //if areWeLoggedIn equals false the sign up button is displayed, if not- the form submit button is displayed
+                    >
 
-                    ) : (
+                        <SignUpButton />
+                        <button onClick={newLoggedInStatus}>change logged in status</button>
 
-                        <FormBtn
+                    </div>
+
+
+
+
+
+                ) : (
+                        <form>
+                            <Input
+                                onChange={handleInputChange}
+                                name={zeUsername}
+                                placeholder={`Username is ${zeUsername} `}
+                            />
+                            <Input
+                                onChange={handleInputChange}
+                                name="Subject"
+                                placeholder="Subject"
+                            />
+                            <Input
+                                onChange={handleInputChange}
+                                name="Message"
+                                placeholder="What would you like to ask?"
+                            />
+
+                            <FormBtn
 
                                 // disabled={!(formObject.username && formObject.message)}
-                            onClick={handleFormSubmit}
+                                onClick={handleFormSubmit}
 
-                        >
+                            >
 
-                            Submit
+                                Submit
 
                         </FormBtn>
+                        </form>
                     )}
 
 
-                </form>
+
 
                 {video.length > 0 ? (
-                        <iframe width="560" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                    ) : (
+                ) : (
                         null
-                )}
+                    )}
 
             </Col>
 
