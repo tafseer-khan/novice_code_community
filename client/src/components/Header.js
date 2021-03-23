@@ -16,7 +16,9 @@ const styles = {
     background: "cadetblue"
   },
   headingStyle: {
-    fontSize: 100
+    textAlign: "center",
+    fontSize: 75
+    
   }
 };
 
@@ -27,7 +29,9 @@ function Header() {
 
 
   return (
-    <div>
+    <div //if we are not logged in are we logged in areWeLoggedIn will equal false and display the first option,
+    // if we are logged in areWeLoggedIn will equal true- so the second option containing the logout button will be displayed
+    >
       {areWeLoggedIn === false ? (
       <header style={styles.headerStyle} className="header">
         <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
