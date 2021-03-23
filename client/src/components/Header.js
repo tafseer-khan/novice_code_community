@@ -1,7 +1,7 @@
 import React from "react";
 import { loggedIn } from "../Atoms";
 import {useAtom} from "jotai";
-import LogoutBtn from "./logoutbtn";
+
 
 
 // By importing the Header.css file, it is added to the DOM whenever this component loads
@@ -29,9 +29,7 @@ function Header() {
 
 
   return (
-    <div //if we are not logged in are we logged in areWeLoggedIn will equal false and display the first option,
-    // if we are logged in areWeLoggedIn will equal true- so the second option containing the logout button will be displayed
-    >
+    <div className="theheaderholder">
       {areWeLoggedIn === false ? (
       <header style={styles.headerStyle} className="header">
         <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
