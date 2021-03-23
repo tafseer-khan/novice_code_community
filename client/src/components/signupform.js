@@ -10,7 +10,7 @@ function SignupForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        Signup.signup(username,email,password);
+        Signup.signup(username,email,password)
         console.log('Signup submitted');
     }
 
