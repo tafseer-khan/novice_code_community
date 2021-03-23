@@ -140,11 +140,10 @@ function Posts() {
 
                 ) : (
                         <form>
-                            <Input
-                                onChange={handleInputChange}
-                                name={postUsername}
-                                placeholder={`Username is ${postUsername} `}
-                            />
+                            <p>
+                                
+                                You are logged in as {postUsername}
+                            </p>
                             <Input
                                 onChange={handleInputChange}
                                 name="Subject"
