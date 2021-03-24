@@ -1,6 +1,6 @@
 import React from "react";
 import { loggedIn } from "../Atoms";
-import {useAtom} from "jotai";
+import { useAtom } from "jotai";
 
 
 
@@ -11,16 +11,6 @@ import {useAtom} from "jotai";
 // On a style object, we camelCase all property names, and put all of the values in quotes
 // Non quoted values default to "pixels", e.g. height, margin, padding
 
-const styles = {
-  headerStyle: {
-    background: "cadetblue"
-  },
-  headingStyle: {
-    textAlign: "center",
-    fontSize: 75
-    
-  }
-};
 
 // We use JSX curly braces to evaluate the style object
 
@@ -31,22 +21,22 @@ function Header() {
   return (
     <div className="theheaderholder">
       {areWeLoggedIn === false ? (
-      <header style={styles.headerStyle} className="header">
-        <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
-      
-      </header>
-    ):(
-      <header style={styles.headerStyle} className="header">
-        <h1 className="thehone" style={styles.headingStyle}>Novice Coding Connection</h1>
+        <header className="header">
+          <h1 className="headingStyle">Novice Coding Connection</h1>
 
-      </header>
+        </header>
+      ) : (
+          <header className="header">
+            <h1 className="headingStyle">Novice Coding Connection</h1>
+
+          </header>
 
 
-    )}
+        )}
 
     </div>
-    
-    
+
+
   );
 }
 
