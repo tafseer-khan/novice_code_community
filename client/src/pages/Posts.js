@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
+import ReplyToPostBtn from "../components/ReplyToPostBtn"
 import API from "../utils/API";
 import Youtube from "../utils/Youtube";
 import { Link } from "react-router-dom"
@@ -11,34 +10,23 @@ import SignUpButton from "../components/SignUpButton";
 import { useAtom } from "jotai";
 import { loggedIn } from "../Atoms";
 import { usernameG } from "../Atoms"
+import axios from "axios";
 
 
 
 function Posts() {
 
     const [posts, setPosts] = useState([])
+    const [postreplies, setPostReply] = useState([])
     const [video, setVideo] = useState([])
     const [formObject, setFormObject] = useState([])
+    const [replyFormObject, setReplyFormObject] = useState([])
     //testing state with jotai below the initial state is loggedIn which is set to false which also sets areWeLoggedIn to false
     //then we run the newLoggedInStatus to change the areWeLoggedIn state to true
     const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
 
     //creates the global zeUsername variable
     const [postUsername, hopingTheUsernameGetsSet] = useAtom(usernameG)
-    console.log(postUsername)
-
-
-    
-    
-
-    console.log(areWeLoggedIn)
-
-    const newLoggedInStatus = (e) => {
-        e.preventDefault()
-        changeLoggedIn(true)
-
-    }
-
 
 
 
@@ -47,10 +35,18 @@ function Posts() {
     }, [])
 
     function loadPosts() {
-        API.getUserPost()
-            .then(res =>
+        let activepage = document.getElementById("active").textContent
+        axios.get("/api/posts/category/" + activepage)
+            .then((res) => {
                 setPosts(res.data)
-            )
+                console.log(res)
+            })
+            // console.log(res)
+            // .then((res) =>{
+            //     console.log(res)
+            // setPosts(res.data)
+            // }
+            // )
             .catch(err => console.log(err));
 
     };
@@ -69,20 +65,23 @@ function Posts() {
     function handleFormSubmit(event) {
         event.preventDefault();
         console.log("handle form")
-        if (formObject.Username && formObject.Message) {
-            API.savePost({
-                username: formObject.Username,
-                message: formObject.Message,
-
+        console.log(postUsername)
+        console.log(document.getElementById("active").textContent)
+        let activepage = document.getElementById("active").textContent
+        if (postUsername && formObject.Message) {
+            axios.post("/api/posts/", {
+                username: postUsername,
+                content: formObject.Message,
+                title: formObject.Subject,
+                category: activepage
             })
-                .then(res => {
+                .then(() => {
                     loadPosts()
-                    console.log(res)
                 })
                 .catch(err => console.log(err));
         }
         if (formObject.Subject) {
-            let searchTerms = formObject.Subject.replace(/\s/g, '');
+            let searchTerms = formObject.Subject.replace(/\s/g, '') + activepage;
             console.log(searchTerms);
             searchYoutube(searchTerms);
         }
@@ -99,10 +98,61 @@ function Posts() {
             .catch(err => console.log(err));
     };
 
-    //use this to decide state of sign in
-    // function setSignedIn(){
+    function replyHandleInputChange(event) {
+        const { name, value } = event.target;
+        setReplyFormObject({ ...replyFormObject, [name]: value })
+    };
 
-    // }
+    function replyHandleFormSubmit(event) {
+        event.preventDefault();
+        let activepage = document.getElementById("active").textContent
+        if (postUsername && replyFormObject.Reply) {
+            axios.post("/api/posts/replies/", {
+                username: postUsername,
+                content: replyFormObject.Reply,
+                category: activepage
+            })
+        }
+    }
+
+    function test(){
+        console.log("it knows to return")
+    }
+
+    function ReplyToPost() {
+        console.log("I hear you")
+
+        return (
+            
+            
+            <Container fluid>
+                <Col size="col-md">
+                    <List>
+                        {postreplies.map(postreply => (
+                            <ListItem key={postreply._id}>
+                                <strong>
+                                    {postreply.username} replied
+                                </strong>
+                            </ListItem>
+                        ))}
+                    </List>
+                    <form>
+                        <Input
+                            onChange={replyHandleInputChange}
+                            name="Reply"
+                        />
+                        <FormBtn
+                            onChange={replyHandleFormSubmit}
+                        >reply
+                        </FormBtn>
+                    </form>
+                </Col>
+            </Container>
+        )
+
+    }
+
+
 
     return (
 
@@ -114,12 +164,16 @@ function Posts() {
                     <List>
                         {posts.map(post => (
                             <ListItem key={post._id}>
-                                <Link to={"/posts/" + post._id}>
-                                    <strong>
-                                        {post.username} said {post.content}
-                                    </strong>
-                                </Link>
-                                <DeleteBtn onClick={() => deletePost(post._id)} />
+
+                                <strong>
+                                    {post.username} said {post.content}
+                                </strong>
+
+                                <ReplyToPostBtn onClick={ReplyToPost} />
+
+
+
+
                             </ListItem>
                         ))}
 
@@ -128,18 +182,13 @@ function Posts() {
                         <h3>No chat yet, non-signed in will be able to view posts, but not submit their own</h3>
                     )}
 
-
-
-
-
-
                 {areWeLoggedIn === false ? (
 
                     <div  //if areWeLoggedIn equals false the sign up button is displayed, if not- the form submit button is displayed
                     >
 
                         <SignUpButton />
-                        <button onClick={newLoggedInStatus}>change logged in status</button>
+
 
                     </div>
 
@@ -149,20 +198,21 @@ function Posts() {
 
                 ) : (
                         <form>
-                            <Input
-                                onChange={handleInputChange}
-                                name={postUsername}
-                                placeholder={`Username is ${postUsername} `}
-                            />
+                            <p>
+
+                                You are logged in as {postUsername}
+                            </p>
                             <Input
                                 onChange={handleInputChange}
                                 name="Subject"
                                 placeholder="Subject"
+                                maxLength="20"
                             />
-                            <Input
+                            <TextArea
                                 onChange={handleInputChange}
                                 name="Message"
                                 placeholder="What would you like to ask?"
+                                style={{ height: "100px" }}
                             />
 
                             <FormBtn
@@ -182,7 +232,10 @@ function Posts() {
 
 
                 {video.length > 0 ? (
-                    <iframe width="560" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div style={{ marginTop: "75px" }}>
+                        <h3>Need more help? Watch this!</h3>
+                        <iframe width="500" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
 
                 ) : (
                         null

@@ -26,21 +26,34 @@ h1, h2, h3, h4, h5 {
     font-family: 'Syne Mono', monospace;
 }
 
+.header.headingStyle{
+    background-color: cadetblue;
+    
+}
+.theheaderholder{
+    background-color: cadetblue;
+    width: 100%;
+    font-size: 70px;
+    text-align: center;
+    
+}
+
 p, li {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* .form-group {
-    width: 300px;
-    padding: 40px;
-    position: center;
-    top: 50%;
-    left: 50%;
-    background:  rgb(98, 120, 121);
-    text-align: absolute;
-    transition: 0.25s;
-    margin-top: 100px;
-    font-family: 'Montserrat', sans-serif;
-  
+@media only screen and (max-width: 1000px){
 
-} */
+    .nav-item{
+        visibility: visible;
+    }
+    .navbar-expand-lg .navbar-nav{
+        flex-direction: row;
+    }
+    .navbar-nav .nav-link{
+        padding-right: .5rem!important;
+        padding-left: .5rem!important;
+    }
+
+}
+
