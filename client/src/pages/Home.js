@@ -1,15 +1,20 @@
 import React from "react";
 import LoginSignup from "./LoginSignup";
 import NavbarConstant from "./NavbarConstant";
-import Posts from "./Posts";
+// import Posts from "./Posts";
 import ResourcesHolder from "../components/ResourcesHolder";
 import { Row } from "../components/Grid";
 import { loggedIn } from "../Atoms";
 import { useAtom } from "jotai";
+import API from '../utils/API';
 
 function Home() {
-
   const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
+  function googleLogin(ev) {
+      ev.preventDefault();
+      window.open("http://localhost:3000/api/user/auth/google", "_self");
+  
+  }
 
   return (
     <div>
@@ -23,7 +28,7 @@ function Home() {
             </div>
 
             <div style={{ margin: "auto", width: "50%", float: "right"}}>
-              <Posts />
+              {/* <Posts /> */}
             </div>
           </Row>
         </div>
@@ -36,10 +41,11 @@ function Home() {
           </div>
 
           <div style={{ margin: "auto", width: "40%" }}>
-            <Posts />
+            {/* <Posts /> */}
           </div>
 
           <div style={{ width: "20%", float: "right" }}>
+            <button onClick={googleLogin} >Sign In with Google</button>
             <LoginSignup />
           </div>
         </Row>
