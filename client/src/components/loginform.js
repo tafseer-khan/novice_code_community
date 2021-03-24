@@ -1,13 +1,37 @@
 import React, { useState } from 'react';
-import Login from "../utils/loginScript";
+import { useAtom } from "jotai";
+import { usernameG } from "../Atoms"
+import {loggedIn} from "../Atoms"
+import axios from "axios";
 
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [whatIsTheUsername, retrieveUsername] = useAtom(usernameG)
+    const [areWeLoggedIn, loggedInCheck] = useAtom(loggedIn)
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        Login.login(email,password)
+        axios.post("/api/user/login",{
+            email: email,
+            password:password
+        }).catch((error)=>{
+            alert("We were not able to log you in! Please check your credentials")
+        })               
+        .then(()=>{
+            (axios.get("/api/user/user_data"))
+            .then((res)=>{
+                alert("Welcome "+res.data.username+ "!")
+                console.log(res.data.username + " has been logged in")
+                retrieveUsername(res.data.username)
+                loggedInCheck(true)
+            })
+    })
+    document.getElementById("signup-username").value = ""
+    document.getElementById("signup-email").value = ""
+    document.getElementById("signup-password").value = ""
+    document.getElementById("login-email").value = ""
+    document.getElementById("login-password").value = ""
     }
 
     return (

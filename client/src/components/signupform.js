@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import Signup from "../utils/signupScript"
+import { useAtom } from "jotai";
+import { usernameG } from "../Atoms"
+import {loggedIn} from "../Atoms"
+import axios from "axios";
+
 
 
 
@@ -7,11 +11,45 @@ function SignupForm() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [whatIsTheUsername, retrieveUsername] = useAtom(usernameG)
+    const [areWeLoggedIn, loggedInCheck] = useAtom(loggedIn)
 
-    const handleSubmit = (event) => {
+    const handleSubmit =async (event) => {
         event.preventDefault();
-        Signup.signup(username,email,password)
-    }
+        const newUser = {
+            username: username,
+            password: password,
+            email: email
+        };
+        axios.post("/api/user/createUser", {
+            newUser
+        }).then(res => {
+
+            if(res.data.error == "email in use"){
+                alert("Email has already been registered")
+            }
+            else if(res.data.error == "username in use"){
+                alert("Username has already been registered, please choose a different username")
+            }
+            else{
+                console.log("Account Signed Up")
+                axios.post("/api/user/login",{
+                    email: email,
+                    password:password
+                })                
+                .then(()=>{(axios.get("/api/user/user_data"))
+                .then(()=>{retrieveUsername(res.data.username);
+                 loggedInCheck(true)})
+            })
+            console.log(res.data.username + " has logged in")
+            document.getElementById("signup-username").value = ""
+            document.getElementById("signup-email").value = ""
+            document.getElementById("signup-password").value = ""
+            document.getElementById("login-email").value = ""
+            document.getElementById("login-password").value = ""
+            // return theusername
+            //insert state change here
+            }})}
 
     return (
         <form onSubmit={handleSubmit} className="form-group">

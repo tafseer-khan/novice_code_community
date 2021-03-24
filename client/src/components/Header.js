@@ -14,7 +14,7 @@ import LogoutBtn from "./logoutbtn";
 const styles = {
   headerStyle: {
     background: "cadetblue",
-    display: "flex"
+
   },
   headingStyle: {
     textAlign: "center",
@@ -41,7 +41,7 @@ function Header() {
     ):(
       <header style={styles.headerStyle} className="header">
         <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
-        <LogoutBtn />
+
       </header>
 
 
