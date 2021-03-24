@@ -6,10 +6,15 @@ import ResourcesHolder from "../components/ResourcesHolder";
 import { Row } from "../components/Grid";
 import { loggedIn } from "../Atoms";
 import { useAtom } from "jotai";
+import API from '../utils/API';
 
 function Home() {
-
   const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
+  function googleLogin(ev) {
+      ev.preventDefault();
+      window.open("http://localhost:3000/api/user/auth/google", "_self");
+  
+  }
 
   return (
     <div>
@@ -40,6 +45,7 @@ function Home() {
           </div>
 
           <div style={{ width: "20%", float: "right" }}>
+            <button onClick={googleLogin} >Sign In with Google</button>
             <LoginSignup />
           </div>
         </Row>
