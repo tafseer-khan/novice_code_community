@@ -32,18 +32,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ncc",
   useFindAndModify: false}
 );
 
-
-
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-
-
-
-// require("./routes/api/index.js");
-// require("./routes/api/posts.js");
-// require("./routes/api/user.js");
-
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
