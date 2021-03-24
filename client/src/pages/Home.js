@@ -7,6 +7,7 @@ import { Row } from "../components/Grid";
 import { loggedIn } from "../Atoms";
 import { useAtom } from "jotai";
 import API from '../utils/API';
+import ReplyPosting from "./ReplyPosting"
 
 function Home() {
   const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
@@ -19,6 +20,7 @@ function Home() {
   return (
     <div>
       <NavbarConstant />
+      
 
       {areWeLoggedIn === true ? (
         <div>
