@@ -1,31 +1,7 @@
 const passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
-const googleClient = require('../googleClient');
 
 var db = require("../models");
-
-// Google auth
-passport.use(new GoogleStrategy({
-  clientID: googleClient.web.client_id,
-  clientSecret: googleClient.web.client_secret,
-  callbackURL: "/api/user/auth/google/callback"
-  },
-  function(token, tokenSecret, profile, done) {
-    User.findOne({ googleId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
-  }
-));
-
-// app.get('/auth/google',
-//   passport.authenticate('google', { scope: ['profiles', ['email']] }));
-
-//   app.get('/auth/google/callback',
-//     passport.authenticate('google', { failureRedirect: '/login' }),
-//     function(req, res) {
-//       res.redirect('/');
-//     });
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(new LocalStrategy(

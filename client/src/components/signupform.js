@@ -87,7 +87,6 @@ function SignupForm() {
             />
             <br />
             <button type="submit" className="signup-btn">Sign Up</button>
-            {/* <button className="signup-btn" onClick={()=>Signup.signup()} >Sign Up</button> */}
         </form>
         
     )

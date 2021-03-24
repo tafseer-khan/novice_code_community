@@ -18,8 +18,4 @@ export default {
     return axios.post("/api/posts/");
   },
 
-  googleLogin: function() {
-    return axios.get('/api/user/auth/google');
-  }
-
 };
