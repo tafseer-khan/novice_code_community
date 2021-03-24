@@ -60,7 +60,6 @@ function LoginForm() {
                 />
                 <br />
                 <button type="submit" className="login-btn">Login</button>
-                {/* <button className="login-btn" onClick={()=>Login.login()} >Login</button> */}
             </div>
         </form>
     )

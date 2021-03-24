@@ -47,7 +47,6 @@ function Home() {
           </div>
 
           <div style={{ width: "20%", float: "right" }}>
-            <button onClick={googleLogin} >Sign In with Google</button>
             <LoginSignup />
           </div>
         </Row>
