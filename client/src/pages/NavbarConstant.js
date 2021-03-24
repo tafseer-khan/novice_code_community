@@ -14,7 +14,7 @@ function NavbarConstant() {
             {areWeLoggedIn === false ? (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <Link className="navbar-brand" to="/"id={window.location.pathname === "/" ? "active" : "inactive"}> Home </Link>
-                <div className="collapse navbar-collapse">
+                
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link to="/HTML" id={window.location.pathname === "/HTML" ? "active" : "inactive"} className={window.location.pathname === "/HTML" ? "nav-link active" : "nav-link"}>HTML</Link>
@@ -28,12 +28,12 @@ function NavbarConstant() {
                             <Link to="/Javascript" id={window.location.pathname === "/Javascript" ? "active" : "inactive"} className={window.location.pathname === "/Javascript" ? "nav-link active" : "nav-link"}>Javascript</Link>
                         </li>
                     </ul>
-                </div>
+                
             </nav>
             ):(
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <Link className="navbar-brand" to="/"id={window.location.pathname === "/" ? "active" : "inactive"}> Home </Link>
-                <div className="collapse navbar-collapse">
+                
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link to="/HTML" id={window.location.pathname === "/HTML" ? "active" : "inactive"} className={window.location.pathname === "/HTML" ? "nav-link active" : "nav-link"}>HTML</Link>
@@ -52,7 +52,7 @@ function NavbarConstant() {
                             <LogoutBtn />
                         </li>
                     </ul>
-                </div>
+                
             </nav>
             )}    
         </div>
