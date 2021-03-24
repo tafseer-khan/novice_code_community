@@ -26,25 +26,35 @@ h1, h2, h3, h4, h5 {
     font-family: 'Syne Mono', monospace;
 }
 
+.header.headingStyle{
+    background-color: cadetblue;
+    
+}
+.theheaderholder{
+    background-color: cadetblue;
+    width: 100%;
+    font-size: 70px;
+    text-align: center;
+    
+}
+
 p, li {
     font-family: 'Montserrat', sans-serif;
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 1000px){
 
-    .header{
-        width: calc(100% - 1.25rem);
-        font-size: 1rem;
+    .nav-item{
+        visibility: visible;
+        
+        
     }
-    body{
-        margin: 0;
-        padding: 0;
-        background-color: cadetblue;
-    }
-    .theheaderholder{
-        background-color: cadetblue;
-        width: 100%;
-    }
+    
+    
+
+    
+    
+    
     
 
 
