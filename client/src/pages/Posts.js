@@ -112,10 +112,9 @@ function Posts() {
                     <List>
                         {posts.map(post => (
                             <ListItem key={post._id}>
-                                <Link to={"/posts/" + post._id}>
-                                    <strong>
-                                        {post.username} said {post.content}
-                                    </strong>
+                                        <span id="hide">{post.username} started thread:</span> 
+                                <Link id="right"to={"/posts/" + post._id}>
+                                        <strong>{post.title}</strong>
                                 </Link>
                                 <DeleteBtn onClick={() => deletePost(post._id)} />
                             </ListItem>
