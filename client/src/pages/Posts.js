@@ -80,7 +80,7 @@ function Posts() {
                 .catch(err => console.log(err));
         }
         if (formObject.Subject) {
-            let searchTerms = formObject.Subject.replace(/\s/g, '');
+            let searchTerms = formObject.Subject.replace(/\s/g, '') + activepage;
             console.log(searchTerms);
             searchYoutube(searchTerms);
         }
