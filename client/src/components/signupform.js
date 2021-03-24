@@ -16,7 +16,7 @@ function SignupForm() {
 
     const handleSubmit =async (event) => {
         event.preventDefault();
-        const newUser = {
+        let newUser = {
             username: username,
             password: password,
             email: email

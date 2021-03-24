@@ -1,8 +1,6 @@
 import React from "react";
 import { loggedIn } from "../Atoms";
-import {useAtom} from "jotai";
-import LogoutBtn from "./logoutbtn";
-
+import { useAtom } from "jotai";
 
 // By importing the Header.css file, it is added to the DOM whenever this component loads
 
@@ -14,42 +12,30 @@ import LogoutBtn from "./logoutbtn";
 const styles = {
   headerStyle: {
     background: "cadetblue",
-
   },
   headingStyle: {
     textAlign: "center",
-    fontSize: 75
-    
-  }
+    fontSize: 75,
+  },
 };
 
 // We use JSX curly braces to evaluate the style object
 
 function Header() {
-  const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
-
+  const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn);
 
   return (
-    <div //if we are not logged in are we logged in areWeLoggedIn will equal false and display the first option,
-    // if we are logged in areWeLoggedIn will equal true- so the second option containing the logout button will be displayed
-    >
+    <div className="theheaderholder">
       {areWeLoggedIn === false ? (
-      <header style={styles.headerStyle} className="header">
-        <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
-      
-      </header>
-    ):(
-      <header style={styles.headerStyle} className="header">
-        <h1 style={styles.headingStyle}>Novice Coding Connection</h1>
-
-      </header>
-
-
-    )}
-
+        <header className="header">
+          <h1 className="headingStyle">Novice Coding Connection</h1>
+        </header>
+      ) : (
+        <header className="header">
+          <h1 className="headingStyle">Novice Coding Connection</h1>
+        </header>
+      )}
     </div>
-    
-    
   );
 }
 

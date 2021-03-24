@@ -11,6 +11,7 @@ import SignUpButton from "../components/SignUpButton";
 import { useAtom } from "jotai";
 import { loggedIn } from "../Atoms";
 import { usernameG } from "../Atoms"
+import axios from "axios";
 
 
 
@@ -25,21 +26,7 @@ function Posts() {
 
     //creates the global zeUsername variable
     const [postUsername, hopingTheUsernameGetsSet] = useAtom(usernameG)
-    console.log(postUsername)
-
-
     
-    
-
-    console.log(areWeLoggedIn)
-
-    const newLoggedInStatus = (e) => {
-        e.preventDefault()
-        changeLoggedIn(true)
-
-    }
-
-
 
 
     useEffect(() => {
@@ -47,10 +34,18 @@ function Posts() {
     }, [])
 
     function loadPosts() {
-        API.getUserPost()
-            .then(res =>
-                setPosts(res.data)
-            )
+        let activepage = document.getElementById("active").textContent
+        axios.get("/api/posts/category/"+activepage)
+        .then((res)=>{
+            setPosts(res.data)
+            console.log(res)
+        })
+        // console.log(res)
+            // .then((res) =>{
+            //     console.log(res)
+                // setPosts(res.data)
+            // }
+            // )
             .catch(err => console.log(err));
 
     };
@@ -69,20 +64,23 @@ function Posts() {
     function handleFormSubmit(event) {
         event.preventDefault();
         console.log("handle form")
-        if (formObject.Username && formObject.Message) {
-            API.savePost({
-                username: formObject.Username,
-                message: formObject.Message,
-
+        console.log(postUsername)
+        console.log(document.getElementById("active").textContent)
+        let activepage = document.getElementById("active").textContent
+        if (postUsername && formObject.Message) {
+            axios.post("/api/posts/",{
+                username: postUsername,
+                content: formObject.Message,
+                title: formObject.Subject,
+                category: activepage
             })
-                .then(res => {
+                .then(() => {
                     loadPosts()
-                    console.log(res)
                 })
                 .catch(err => console.log(err));
         }
         if (formObject.Subject) {
-            let searchTerms = formObject.Subject.replace(/\s/g, '');
+            let searchTerms = formObject.Subject.replace(/\s/g, '') + activepage;
             console.log(searchTerms);
             searchYoutube(searchTerms);
         }
@@ -139,7 +137,7 @@ function Posts() {
                     >
 
                         <SignUpButton />
-                        <button onClick={newLoggedInStatus}>change logged in status</button>
+                        
 
                     </div>
 
@@ -149,20 +147,21 @@ function Posts() {
 
                 ) : (
                         <form>
-                            <Input
-                                onChange={handleInputChange}
-                                name={postUsername}
-                                placeholder={`Username is ${postUsername} `}
-                            />
+                            <p>
+                                
+                                You are logged in as {postUsername}
+                            </p>
                             <Input
                                 onChange={handleInputChange}
                                 name="Subject"
                                 placeholder="Subject"
+                                maxLength="20"
                             />
-                            <Input
+                            <TextArea
                                 onChange={handleInputChange}
                                 name="Message"
                                 placeholder="What would you like to ask?"
+                                style={{height: "100px"}}
                             />
 
                             <FormBtn
@@ -182,7 +181,10 @@ function Posts() {
 
 
                 {video.length > 0 ? (
-                    <iframe width="560" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div style={{marginTop: "75px"}}>
+                        <h3>Need more help? Watch this!</h3>
+                        <iframe width="500" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
 
                 ) : (
                         null
