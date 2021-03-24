@@ -12,6 +12,8 @@ import { loggedIn } from "../Atoms";
 import { usernameG } from "../Atoms"
 import axios from "axios";
 
+import ReplyPosting from "./ReplyPosting"
+
 
 
 function Posts() {
@@ -35,21 +37,8 @@ function Posts() {
 
     }, [])
 
-    function loadReplies(id) {
-
-
-        axios.get("/api/replies/" + id)
-            .then((res) => {
-                console.log(res)
-                if (res.data === null) {
-
-                    console.log("nope")
-                }
-                setPostReply(res.data)
-            })
-            .catch(err => console.log(err));
-
-    }
+    
+    
 
     function loadPosts() {
         let activepage = document.getElementById("active").textContent
@@ -68,12 +57,7 @@ function Posts() {
 
     };
 
-    function deletePost(id) {
-        API.deletePost(id)
-            .then(res => loadPosts())
-            .catch(err => console.log(err));
-    }
-
+    
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({ ...formObject, [name]: value })
@@ -115,63 +99,6 @@ function Posts() {
             .catch(err => console.log(err));
     };
 
-    function replyHandleInputChange(event) {
-        const { name, value } = event.target;
-        setReplyFormObject({ ...replyFormObject, [name]: value })
-    };
-
-    function replyHandleFormSubmit(event) {
-        event.preventDefault();
-        let activepage = document.getElementById("active").textContent
-        if (postUsername && replyFormObject.Reply) {
-            axios.post("/api/replies/", {
-                username: postUsername,
-                content: replyFormObject.Reply,
-                refId: event.target._id
-            })
-        }
-    }
-
-
-    function ReplyToPost(id) {
-        console.log("clicked")
-        loadReplies(id)
-
-        return (
-
-
-
-            <Container fluid>
-
-
-                <Col size="col-sm">
-                    <List>
-                        {postreplies !== null ?
-                            postreplies.map(postreply => (
-                                <ListItem key={postreply._id}>
-                                    <strong>
-                                        {postreply.username} replied
-                                </strong>
-                                </ListItem>
-                            )) : <ListItem>no replies</ListItem>
-                        }
-                    </List>
-                    <form>
-                        <Input
-                            onChange={replyHandleInputChange}
-                            name="Reply"
-                        />
-                        <FormBtn
-                            onChange={replyHandleFormSubmit}
-                        >reply
-                        </FormBtn>
-                    </form>
-                </Col>
-            </Container>
-        )
-
-    }
-
 
 
     return (
@@ -185,27 +112,23 @@ function Posts() {
                         {posts.map(post => (
                             <ListItem key={post._id}>
 
+
                                 <strong>
                                     {post.username} said {post.content}
                                 </strong>
 
-                                <ReplyToPostBtn id={post._id} onClick={e => ReplyToPost(e.target.id)} />
+                                <ReplyPosting />
+                                
+
+                                
 
                             </ListItem>
                         ))}
-                        { postreplies !== null ?
-                            postreplies.map(postreply => (
-                                <ListItem key={postreply._id}>
-                                    <strong>
-                                        {postreply.username} replied
-                                </strong>
-                                </ListItem>
-                            )) : <div style={{color: "red" }}>no replies yet</div>
-                        }
+                        
 
                     </List>
                 ) : (
-                        <h3>No chat yet, non-signed in will be able to view posts, but not submit their own</h3>
+                    <ReplyPosting />
                     )}
 
                 {areWeLoggedIn === false ? (
@@ -217,10 +140,6 @@ function Posts() {
 
 
                     </div>
-
-
-
-
 
                 ) : (
                         <form>
@@ -272,5 +191,8 @@ function Posts() {
 
         </Container>
     )
+    
+        
+    
 }
 export default Posts
