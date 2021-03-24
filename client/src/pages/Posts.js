@@ -164,7 +164,6 @@ function Posts() {
                     <List>
                         {posts.map(post => (
                             <ListItem key={post._id}>
-<<<<<<< HEAD
 
                                 <strong>
                                     {post.username} said {post.content}
@@ -175,13 +174,6 @@ function Posts() {
 
 
 
-=======
-                                        <span id="hide">{post.username} started thread:</span> 
-                                <Link id="right"to={"/posts/" + post._id}>
-                                        <strong>{post.title}</strong>
-                                </Link>
-                                <DeleteBtn onClick={() => deletePost(post._id)} />
->>>>>>> 68dbc3e5678a9ab0978d7af597d57636de57a6de
                             </ListItem>
                         ))}
 
