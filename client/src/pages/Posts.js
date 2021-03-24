@@ -32,7 +32,24 @@ function Posts() {
 
     useEffect(() => {
         loadPosts()
+
     }, [])
+
+    function loadReplies(id) {
+
+
+        axios.get("/api/replies/" + id)
+            .then((res) => {
+                console.log(res)
+                if (res.data === null) {
+
+                    console.log("nope")
+                }
+                setPostReply(res.data)
+            })
+            .catch(err => console.log(err));
+
+    }
 
     function loadPosts() {
         let activepage = document.getElementById("active").textContent
@@ -107,34 +124,37 @@ function Posts() {
         event.preventDefault();
         let activepage = document.getElementById("active").textContent
         if (postUsername && replyFormObject.Reply) {
-            axios.post("/api/posts/replies/", {
+            axios.post("/api/replies/", {
                 username: postUsername,
                 content: replyFormObject.Reply,
-                category: activepage
+                refId: event.target._id
             })
         }
     }
 
-    function test(){
-        console.log("it knows to return")
-    }
 
-    function ReplyToPost() {
-        console.log("I hear you")
+    function ReplyToPost(id) {
+        console.log("clicked")
+        loadReplies(id)
 
         return (
-            
-            
+
+
+
             <Container fluid>
-                <Col size="col-md">
+
+
+                <Col size="col-sm">
                     <List>
-                        {postreplies.map(postreply => (
-                            <ListItem key={postreply._id}>
-                                <strong>
-                                    {postreply.username} replied
+                        {postreplies !== null ?
+                            postreplies.map(postreply => (
+                                <ListItem key={postreply._id}>
+                                    <strong>
+                                        {postreply.username} replied
                                 </strong>
-                            </ListItem>
-                        ))}
+                                </ListItem>
+                            )) : <ListItem>no replies</ListItem>
+                        }
                     </List>
                     <form>
                         <Input
@@ -169,13 +189,19 @@ function Posts() {
                                     {post.username} said {post.content}
                                 </strong>
 
-                                <ReplyToPostBtn onClick={ReplyToPost} />
-
-
-
+                                <ReplyToPostBtn id={post._id} onClick={e => ReplyToPost(e.target.id)} />
 
                             </ListItem>
                         ))}
+                        { postreplies !== null ?
+                            postreplies.map(postreply => (
+                                <ListItem key={postreply._id}>
+                                    <strong>
+                                        {postreply.username} replied
+                                </strong>
+                                </ListItem>
+                            )) : <div style={{color: "red" }}>no replies yet</div>
+                        }
 
                     </List>
                 ) : (
