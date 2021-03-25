@@ -117,7 +117,7 @@ function Posts() {
                                     {post.username} said {post.content}
                                 </strong>
 
-                                <ReplyPosting refId={post._id} username={post.username} />
+                                {/* <ReplyPosting refId={post._id} username={post.username} /> */}
                                 
 
                                 
@@ -128,7 +128,7 @@ function Posts() {
 
                     </List>
                 ) : (
-                    <ReplyPosting />
+                    null
                     )}
 
                 {areWeLoggedIn === false ? (
