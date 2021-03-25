@@ -10,49 +10,71 @@ import axios from "axios";
 
 class ReplyPosting extends Component {
 
-    state={
+    state = {
         visible: false
     }
-    
+    newReply = {
+        visible: false
+    }
 
-    
-    render(){
 
-        // const [postUsername, hopingTheUsernameGetsSet] = useAtom(usernameG)
-        // const [formObject, setFormObject] = useState([])
-        const {refId, username} = this.props;
+
+    render() {
+
+        
+        const { refId, username } = this.props;
 
         function handleFormSubmit(event) {
             event.preventDefault();
-                axios.post("/api/replies/", {content: document.getElementById("replytext").value, username: username, refId:refId })
-                document.getElementById("replytext").value = "";
-            };
+            axios.post("/api/replies/", { content: document.getElementById("replytext").value, username: username, refId: refId })
+            document.getElementById("replytext").value = ""
+            makeReplyDiv();
+            
+            
+        };
 
-        return(
- 
+        
+
+        
+
+        return (
+
             <div className="ReplyPosting">
-                
+
                 <ReplyToPostBtn
                     onClick={() => {
-                        this.setState({visible: true})
+                        this.setState({ visible: true })
+                        // this.setNewReply({ visible: true})
                     }}
                 >reply</ReplyToPostBtn>
-                {this.state.visible ? 
-                <form>
-                    <Input
-                        name="Reply"
-                        id="replytext"
 
-                    />
-                    <FormBtn
-                        onClick={handleFormSubmit}
-                    
-                    >
-                        reply
-                    </FormBtn>
 
-                </form>: null}
 
+                {this.state.visible ?
+                    <form>
+                        <Input
+                            name="Reply"
+                            id="replytext"
+
+                        />
+                        <FormBtn
+                            onClick={handleFormSubmit}
+                            
+                                
+                        >
+                            reply
+                        </FormBtn>
+
+                    </form> : 
+                null}
+
+                {this.newReply.visible ?  
+                <ul>
+                    <li>
+                        something
+
+                    </li>
+                </ul> : null}
 
             </div>
 
