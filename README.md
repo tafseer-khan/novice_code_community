@@ -24,9 +24,6 @@ MIT
 * MongoDB/Mo
 * YouTube Data 
 
-API![image](https://user-images.githubusercontent.com/75283753/112503207-ba780b80-8d58-11eb-83b7-60a0564180df.png)
-
-
 ## Contributors
 
 * Daniel Bushong
