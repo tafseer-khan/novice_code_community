@@ -8,6 +8,8 @@ As a student learning code
 I want to be able to be able to reach out to a community of fellow coding students in order
 So I can reach out with questions, find resources and connect.
 
+![Logo 2](https://user-images.githubusercontent.com/75283753/112507807-fad98880-8d5c-11eb-9dfb-c4254475b08d.png)
+
 ## License Used
 
 MIT
