@@ -117,7 +117,7 @@ function Posts() {
                                     {post.username} said {post.content}
                                 </strong>
 
-                                <ReplyPosting />
+                                <ReplyPosting refId={post._id} username={post.username} />
                                 
 
                                 

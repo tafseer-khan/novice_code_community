@@ -20,17 +20,12 @@ class ReplyPosting extends Component {
 
         // const [postUsername, hopingTheUsernameGetsSet] = useAtom(usernameG)
         // const [formObject, setFormObject] = useState([])
-        
+        const {refId, username} = this.props;
 
         function handleFormSubmit(event) {
             event.preventDefault();
-            
-            
-            
-            axios.get("/api/user/user_data/").then(res => 
-             
-                axios.post("/api/replies/", {content: document.getElementById("replytext").value, username: res.data.username, refId:Posts.posts._id }))
-            
+                axios.post("/api/replies/", {content: document.getElementById("replytext").value, username: username, refId:refId })
+                document.getElementById("replytext").value = "";
             };
 
         return(
