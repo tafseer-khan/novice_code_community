@@ -15,11 +15,19 @@ div[data-reactroot] {
 }
 
 body {
-    background-color: rgb(177, 177, 177);
+    background-color: white;
     color: rgb(0, 1, 2);
     padding: 40px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    /* background-image: url(https://mcdn.wallpapersafari.com/medium/15/28/gS6ZyJ.jpg);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: bottom; */
+ 
+}
+footer{
+    
 }
 
 h1, h2, h3, h4, h5 {

@@ -33,10 +33,6 @@ class ReplyPosting extends Component {
             
         };
 
-        
-
-        
-
         return (
 
             <div className="ReplyPosting">

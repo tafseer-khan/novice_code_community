@@ -29,8 +29,13 @@ function Home() {
               <ResourcesHolder />
             </div>
 
-            <div style={{ margin: "auto", width: "50%", float: "right"}}>
-              {/* <Posts /> */}
+            <div style={{  width: "40%" }}>
+            <h1>Welcome to the Novice Coding Connection!</h1>
+            <br></br>
+            <h2>Thanks for signing in!</h2>
+            <h2>Please enjoy our site and what our community has to offer.</h2>
+            <br></br>
+            <h2>This is a place full of simple answers for people who are just getting started in the coding world.</h2>
             </div>
           </Row>
         </div>
@@ -42,8 +47,9 @@ function Home() {
             <ResourcesHolder />
           </div>
 
-          <div style={{ margin: "auto", width: "40%" }}>
-            {/* <Posts /> */}
+          <div style={{  width: "40%" }}>
+            <h1>Welcome to the Novice Coding Connection!</h1>
+            <h2>This is a place full of simple answers for people who are just getting started in the coding world.</h2>
           </div>
 
           <div style={{ width: "20%", float: "right" }}>
@@ -54,7 +60,7 @@ function Home() {
 
       )}
 
-
+    
     </div>
   );
 }

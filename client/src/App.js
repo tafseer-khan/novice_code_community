@@ -25,8 +25,10 @@ function App() {
                     <Route exact path="/HTML" component={HTML} />
                     <Route exact path="/Javascript" component={Javascript} />
                 </div>
-
+                
             </Router>
+            
+            
         </div>
     );
 }
