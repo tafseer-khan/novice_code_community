@@ -2,8 +2,6 @@ import React from "react";
 import { loggedIn } from "../Atoms";
 import { useAtom } from "jotai";
 
-
-
 // By importing the Header.css file, it is added to the DOM whenever this component loads
 
 // We can also style a component inside of its JavaScript file by adding style properties to its rendered elements
@@ -14,28 +12,20 @@ import { useAtom } from "jotai";
 // We use JSX curly braces to evaluate the style object
 
 function Header() {
-  const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn)
-
+  const [areWeLoggedIn, changeLoggedIn] = useAtom(loggedIn);
 
   return (
     <div className="theheaderholder">
       {areWeLoggedIn === false ? (
         <header className="header">
           <h1 className="headingStyle">Novice Coding Connection</h1>
-
         </header>
       ) : (
-          <header className="header">
-            <h1 className="headingStyle">Novice Coding Connection</h1>
-
-          </header>
-
-
-        )}
-
+        <header className="header">
+          <h1 className="headingStyle">Novice Coding Connection</h1>
+        </header>
+      )}
     </div>
-
-
   );
 }
 
