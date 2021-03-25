@@ -8,8 +8,6 @@ As a student learning code
 I want to be able to be able to reach out to a community of fellow coding students in order
 So I can reach out with questions, find resources and connect.
 
-![Logo 2](https://user-images.githubusercontent.com/75283753/112507807-fad98880-8d5c-11eb-9dfb-c4254475b08d.png)
-
 ## License Used
 
 MIT
@@ -25,6 +23,8 @@ MIT
 * Passport-Local
 * MongoDB/Mo
 * YouTube Data 
+
+<img width="1277" alt="Screen Shot 2021-03-25 at 11 09 47 AM" src="https://user-images.githubusercontent.com/75283753/112508056-35432580-8d5d-11eb-8572-57adf6adf246.png">
 
 ## Contributors
 
