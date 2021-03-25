@@ -16,5 +16,10 @@ export default {
   // Saves a book to the database
   savePost: function() {
     return axios.post("/api/posts/");
+  },
+
+  googleLogin: function() {
+    return axios.get('/api/user/auth/google');
   }
+
 };
