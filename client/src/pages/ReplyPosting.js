@@ -14,7 +14,7 @@ class ReplyPosting extends Component {
         visible: false
     }
     newReply = {
-        visible: false
+        visible: true
     }
 
 
@@ -44,7 +44,7 @@ class ReplyPosting extends Component {
                 <ReplyToPostBtn
                     onClick={() => {
                         this.setState({ visible: true })
-                        // this.setNewReply({ visible: true})
+                        
                     }}
                 >reply</ReplyToPostBtn>
 
@@ -71,7 +71,7 @@ class ReplyPosting extends Component {
                 {this.newReply.visible ?  
                 <ul>
                     <li>
-                        something
+                        Richard said: HTML is the backbone of the internet!
 
                     </li>
                 </ul> : null}
