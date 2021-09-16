@@ -36,4 +36,4 @@ MIT
 
 ## Links
 
-Heroku - https://austinweightlosstoday.com/
+Heroku - https://novice-code-community.herokuapp.com/
